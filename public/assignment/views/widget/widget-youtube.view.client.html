@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/styles.css" rel="stylesheet"/>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../css/styles.css" rel="stylesheet"/>
     <meta charset="UTF-8">
-    <title>WebBuilder: Create New Page</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>WebBuilder: Youtube Widget</title>
 </head>
 <body>
 
@@ -18,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Create New Page</a>
+            <a class="navbar-brand" href="#">Youtube Widget</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,12 +43,12 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="page-list.html">
+                    <a href="widget-list.html">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="page-list.html">
+                    <a href="widget-list.html">
                         <span class="glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </div>
@@ -54,28 +56,35 @@
         </li>
     </ul>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <label for="name">Page Name</label>
-            <input id="name"
-                   placeholder="Name"
-                   class="form-control"
-                   value=""/>
 
-            <label for="title">Page Title</label>
-            <input id="title"
-                   placeholder="Title"
-                   class="form-control"
-                    value=""/>
+    <label for="name">Name</label>
+    <input id="name"
+           class="form-control"/>
 
-        </div>
-    </div>
+    <label for="text">Text</label>
+    <input id="text"
+           class="form-control"/>
+
+    <label for="url">URL</label>
+    <input id="url"
+           class="form-control"/>
+
+    <label for="width">Width (%)</label>
+    <input id="width"
+           class="form-control"/>
+
+    <a href="widget-list.html"
+       class="btn btn-block btn-danger">
+        Delete
+    </a>
+
 </div>
+
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                New Page
+                Youtube Widget
             </a>
         </div>
     </div>
