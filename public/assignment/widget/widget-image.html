@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>WebBuilder: Image Widget</title>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Image Widget</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="../user/profile.html">
+                    <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="/assignment/user/login.html">Logout</a></li>
+                <li class="active"><a href="/assignment/">Home<span class="sr-only">(current)</span></a></li>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="widget-list.html">
+                        <span class="glyphicon glyphicon-menu-left pull-left"></span>
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="widget-list.html">
+                        <span class="glyphicon glyphicon-ok pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+    <label for="name">Name</label>
+    <input id="name"
+           class="form-control"/>
+
+    <label for="text">Text</label>
+    <input id="text"
+           class="form-control"/>
+
+    <label for="url">URL</label>
+    <input id="url"
+           class="form-control"/>
+
+    <label for="width">Width (%)</label>
+    <input id="width"
+           class="form-control"/>
+
+
+    <label for="file">File Upload</label>
+    <input id="file"
+           multiple
+           type="file"
+           class="form-control"/>
+
+    <a href="#"
+       class="btn btn-block btn-primary">
+        Upload Image
+    </a>
+
+    <a href="widget-list.html"
+       class="btn btn-block btn-danger">
+        Delete
+    </a>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Image Widget
+            </a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>
