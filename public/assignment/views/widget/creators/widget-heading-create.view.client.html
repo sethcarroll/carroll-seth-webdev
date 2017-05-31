@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Image Widget</a>
+            <a class="navbar-brand" href="#">Heading Widget</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,12 +31,12 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                    <a href=#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="model.updateWidget(model.widget)">
+                    <a ng-click="model.createWidget(widget)">
                         <span class="glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </div>
@@ -49,47 +49,32 @@
     <input type="text"
            id="name"
            class="form-control"
-           ng-model="model.widget.name"/>
+           ng-model="widget.name"/>
 
     <label for="text">Text</label>
     <input type="text"
            id="text"
            class="form-control"
-           ng-model="model.widget.text"/>
+           ng-model="widget.text"/>
 
-    <label for="url">URL</label>
-    <input type="text"
-           id="url"
-           class="form-control"
-           ng-model="model.widget.url"/>
-
-    <label for="width">Width (%)</label>
-    <input type="text"
-           id="width"
-           class="form-control"
-           ng-width="model.widget.width"/>
-
-
-    <label for="file">File Upload</label>
-    <input type="file"
-           id="file"
-           class="form-control"/>
-
-    <a ng-click="model.updateWidget(model.widget)"
-       class="btn btn-block btn-primary">Upload Image</a>
-
-    <a ng-click="model.deleteWidget()"
-       class="btn btn-block btn-danger">
-        Delete
-    </a>
-
+    <label for="size">Size</label>
+    <select id="size"
+            class="form-control"
+            ng-model="widget.size">
+        <option value="1">1 (Largest)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6 (smallest)</option>
+    </select>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                Image Widget
+                Heading Widget
             </a>
         </div>
     </div>

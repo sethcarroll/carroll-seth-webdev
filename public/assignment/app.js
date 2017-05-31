@@ -1,3 +1,4 @@
-/**
- * Created by Seth on 5/28/17.
- */
+(function() {
+    angular
+        .module('WebAppMaker', ['ngRoute']);
+})();

@@ -14,10 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="../user/templates/profile.view.client.html">
+                <li><a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="/assignment/user/login.html">Logout</a></li>
-                <li class="active"><a href="/assignment/">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="#/login">Logout</a></li>
+                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
             </ul>
@@ -26,17 +26,16 @@
 </nav>
 
 <div class="container-fluid">
-
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="../page/templates/page-list.view.client.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="widget-choose.view.client.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
                         <span class="glyphicon glyphicon-plus pull-right"></span>
                     </a>
                 </div>
@@ -44,71 +43,29 @@
         </li>
     </ul>
 
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <a href="widget-heading.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h1>MACRUMORS</h1>
-    </div>
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <a href="widget-heading.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <h3>macOS 10.13 Wishlist: Features MacRumors Readers Hope to See in the Next Version of macOS</h3>
-    </div>
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <a href="widget-image.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <img width="100%"
-             src="https://cdn.macrumors.com/article-new/2017/05/macos1013-800x500.jpg"/>
-    </div>
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <span class="glyphicon glyphicon-cog"></span>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
+    <div ng-repeat="widget in model.widgets"
+         class="container-fluid">
+        <div class="stc-widget">
+            <div class="stc-widget-toolbar pull-right">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <ng-include src="'/assignment/views/widget/templates/widget-heading.view.client.html'">
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <ng-include src="'/assignment/views/widget/templates/widget-image.view.client.html'">
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <ng-include src="'/assignment/views/widget/templates/widget-youtube.view.client.html'">
+                </div>
+            </div>
 
-        <p>Redesigned iTunes/Apple Music - Some MacRumors readers would like to see Apple
-            overhaul iTunes in a big way, splitting out Apple Music and turning it into
-            its own distinct app that's not combined with the App Store and iTunes Store.
-        </p>
-
-        <p>
-            HomeKit - Connected home products can be controlled through Siri or a dedicated
-            Home app on iOS devices, but on the Mac, there's no built-in way to interface
-            with a HomeKit setup. A Home app for the Mac would be a welcome addition, and
-            perhaps the Mac could even serve as a HomeKit hub like the Apple TV and the iPad.
-        </p>
-        <p>
-
-            - Expanded Dark Mode - macOS Sierra included a Dark Mode that darkens the dock and
-            the drop down menus across the operating system, but several MacRumors readers would
-            like to see an expanded Dark Mode that darkens all interface elements like Finder and
-            Notification Center.
-        </p>
-    </div>
-    <div class="wd-widget">
-        <div class="wd-toolbar">
-            <a href="widget-youtube.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
-        </div>
-        <div class="stc-vidcontainer">
-        <iframe class="video" width="100%" src="https://www.youtube.com/embed/cPAbx5kgCJo" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-    <div class="wd-widget"></div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

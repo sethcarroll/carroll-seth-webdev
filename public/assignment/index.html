@@ -1,91 +1,55 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <html lang="en" ng-app="WebAppMaker">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>WebBuilder</title>
 
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+        <!--Style Sheets-->
+        <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="css/styles.css" rel="stylesheet" >
+        <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" >
 
-    <title>WebBuilder</title>
+        <!--Angular Libraries-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+        <!--For local ease while coding, commented out when pushed online-->
+        <!--<script src="vendor/angular/angular.min.js"></script>-->
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <!--app.js and config.js-->
+        <script src="app.js"></script>
+        <script src="config.js"></script>
 
-</head>
+        <!--Service Files-->
+        <script src="services/user.service.client.js"></script>
+        <script src="services/website.service.client.js"></script>
+        <script src="services/page.service.client.js"></script>
+        <script src="services/widget.service.client.js"></script>
 
+        <!--Controllers-->
+        <!--User Controllers-->
+        <script src="views/user/controllers/login.controller.client.js"></script>
+        <script src="views/user/controllers/register.controller.client.js"></script>
+        <script src="views/user/controllers/profile.controller.client.js"></script>
+        <!--Website Controllers-->
+        <script src="views/website/controllers/website-list.controller.client.js"></script>
+        <script src="views/website/controllers/website-new.controller.client.js"></script>
+        <script src="views/website/controllers/website-edit.controller.client.js"></script>
+        <!--Page Controllers-->
+        <script src="views/page/controllers/page-list.controller.client.js"></script>
+        <script src="views/page/controllers/page-edit.controller.client.js"></script>
+        <script src="views/page/controllers/page-new.controller.client.js"></script>
+        <!--Widget Controllers-->
+        <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+        <script src="views/widget/controllers/widget-chooser.controller.client.js"></script>
+        <script src="views/widget/controllers/widget-new.controller.client.js"></script>
+        <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+
+    </head>
 <body>
 
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">WebBuilder 2017</a>
-        </div>
+<div ng-view></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="/assignment/user/register.html">Register</a></li>
-                <li><a href="/assignment/user/login.html">Login</a></li>
-                <li class="active"><a href="/assignment/">Home<span class="sr-only">(current)</span></a></li>
-
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-<div class="container theme-showcase" role="main">
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>WebBuilder <small>A CS4550 Assignment</small></h1>
-    </div>
-
-
-    <div class="page-header">
-        <h1>Welcome!</h1>
-    </div>
-
-    <div class="container-fluid">
-    <p>
-        Please login or register to gain access to this useful tool to design your own websites!
-    </p>
-    </div>
-
-
-
-</div> <!-- /container -->
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-    </div>
-</nav>
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="/vendor/jquery/dist/jquery.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<!--<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>-->
-<!--<script src="../../assets/js/docs.min.js"></script>-->
 </body>
 </html>

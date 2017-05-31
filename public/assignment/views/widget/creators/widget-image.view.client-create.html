@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="model.updateWidget(model.widget)">
+                    <a href="model.createWidget(widget)">
                         <span class="glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </div>
@@ -49,25 +49,25 @@
     <input type="text"
            id="name"
            class="form-control"
-           ng-model="model.widget.name"/>
+           ng-model="widget.name"/>
 
     <label for="text">Text</label>
     <input type="text"
            id="text"
            class="form-control"
-           ng-model="model.widget.text"/>
+           ng-model="widget.text"/>
 
     <label for="url">URL</label>
     <input type="text"
            id="url"
            class="form-control"
-           ng-model="model.widget.url"/>
+           ng-model="widget.url"/>
 
     <label for="width">Width (%)</label>
     <input type="text"
            id="width"
            class="form-control"
-           ng-width="model.widget.width"/>
+           ng-width="widget.width"/>
 
 
     <label for="file">File Upload</label>
@@ -75,14 +75,8 @@
            id="file"
            class="form-control"/>
 
-    <a ng-click="model.updateWidget(model.widget)"
+    <a ng-click="model.createWidget(widget)"
        class="btn btn-block btn-primary">Upload Image</a>
-
-    <a ng-click="model.deleteWidget()"
-       class="btn btn-block btn-danger">
-        Delete
-    </a>
-
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

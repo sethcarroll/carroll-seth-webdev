@@ -14,10 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="../user/templates/profile.view.client.html">
+                <li><a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="/assignment/user/login.html">Logout</a></li>
-                <li class="active"><a href="/assignment/">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="#/login">Logout</a></li>
+                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
             </ul>
@@ -31,7 +31,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-1">
-                    <a href="../website/widget-list.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
@@ -43,7 +43,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="ading.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/heading">
                         Header
                     </a>
                 </div>
@@ -97,7 +97,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="age.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/image">
                         Image
                     </a>
                 </div>
@@ -106,7 +106,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="utube.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/youtube">
                         Youtube
                     </a>
                 </div>

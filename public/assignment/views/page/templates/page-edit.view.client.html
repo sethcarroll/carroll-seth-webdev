@@ -14,10 +14,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="../user/templates/profile.view.client.html">
+                <li><a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="/assignment/user/login.html">Logout</a></li>
-                <li class="active"><a href="/assignment/">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="#/login">Logout</a></li>
+                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
             </ul>
@@ -31,12 +31,12 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="page-list.view.client.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="page-list.view.client.html">
+                    <a href="model.updatePage()">
                         <span class="glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </div>
@@ -49,15 +49,20 @@
             <label for="name">Page Name</label>
             <input id="name"
                    placeholder="Name"
+                   type="text"
                    class="form-control"
-                   value=""/>
+                   value=""
+                   ng-model="model.page.name"/>
 
             <label for="title">Page Title</label>
             <input id="title"
                    placeholder="Title"
+                   type="text"
                    class="form-control"
-                   value=""/>
-            <a href="page-list.view.client.html"
+                   value=""
+                   ng-model="model.page.description"/>
+
+            <a ng-click="model.deletePage()"
                class="btn btn-block btn-danger">
                 Delete
             </a>
