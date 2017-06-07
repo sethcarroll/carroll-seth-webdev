@@ -27,6 +27,7 @@
 
 <div class="container-fluid">
 
+    <div>
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
@@ -36,16 +37,47 @@
                     </a>
                 </div>
                 <div class="col-sm-6">
-                    <a href="model.updatePage()">
+                    <a ng-click="model.updatePage(model.pageId, model.page)">
                         <span class="glyphicon glyphicon-ok pull-right"></span>
                     </a>
                 </div>
             </div>
         </li>
     </ul>
+    </div>
 
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="col-sm-4 hidden-xs">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                <div class="row">
+                    <div class="col-xs-9">
+                        Page Name
+                    </div>
+                    <div class="col-xs-3">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                        <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
+                    </a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="list-group-item" ng-repeat="page in model.pages">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}} </a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+        <div class=" col-sm-8 col-xs-12">
             <label for="name">Page Name</label>
             <input id="name"
                    placeholder="Name"
@@ -62,12 +94,11 @@
                    value=""
                    ng-model="model.page.description"/>
 
-            <a ng-click="model.deletePage()"
+            <a ng-click="model.deletePage(model.pageId)"
                class="btn btn-block btn-danger">
                 Delete
             </a>
         </div>
-    </div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

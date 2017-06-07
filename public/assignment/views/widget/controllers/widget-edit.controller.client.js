@@ -14,18 +14,35 @@
         model.deleteWidget = deleteWidget;
 
         function init() {
-            model.widget = angular.copy(widgetService.findWidgetById(model.widgetId));
+            widgetService
+                .findAllWidgetsForPage(model.pageId)
+                .then(function (widgets) {
+                    model.widgets = widgets;
+                    model.oldWidgets = angular.copy(model.widgets);
+                });
+            widgetService
+                .findWidgetById(model.widgetId)
+                .then(function (widget) {
+                    model.widget = widget;
+                    model.oldWidget = angular.copy(model.widget);
+                });
         }
         init();
 
-        function updateWidget(widget) {
-            widgetService.updateWidget(widget, model.widgetId);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+        function updateWidget (widgetId, widget) {
+            widgetService
+                .updateWidget(widgetId, widget)
+                .then(function (){
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                });
         }
 
-        function deleteWidget() {
-            widgetService.deleteWidget(model.widgetId);
-            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+        function deleteWidget (widgetId) {
+            widgetService
+                .deleteWidget(widgetId)
+                .then(function (){
+                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page/'+model.pageId+'/widget');
+                });
         }
     }
 })();

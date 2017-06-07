@@ -43,9 +43,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/heading">
-                        Header
-                    </a>
+                    <a ng-click="model.createWidget('HEADING')">Header</a>
                 </div>
             </div>
         </li>
@@ -97,18 +95,14 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/image">
-                        Image
-                    </a>
+                    <a ng-click="model.createWidget('IMAGE')">Image</a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/youtube">
-                        Youtube
-                    </a>
+                    <a ng-click="model.createWidget('YOUTUBE')">Youtube</a>
                 </div>
             </div>
         </li>

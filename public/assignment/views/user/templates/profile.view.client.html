@@ -27,6 +27,8 @@
 
     <div class="container-fluid">
 
+        <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+
         <label for="username">Username</label>
         <input type="text"
                id="username"
@@ -52,7 +54,12 @@
                ng-model="model.user.lastName"/>
 
 
-        <a href="#/user/{{model.userId}}/website" class="btn btn-block btn-primary">Your Websites</a>
+        <a href="#/user/{{model.userId}}/website"
+           class="btn btn-block btn-primary">Your Websites</a>
+        <a class="btn btn-success btn-block"
+           ng-click="model.updateUser(model.userId, model.user)">Update</a>
+        <a class="btn btn-danger btn-block"
+           ng-click="model.deleteUser(model.userId)">Delete</a>
     </div>
 
 

@@ -7,16 +7,24 @@
         var model = this;
         model.userId = $routeParams['userId'];
         model.websiteId = $routeParams['websiteId'];
+        model.createPage = createPage;
 
         function init() {
-            model.pages = pageService.findPagesByWebsiteId(model.websiteId);
-            model.createPage = createPage;
+            pageService
+                .findAllPagesForWebsite(model.websiteId)
+                .then(function (pages) {
+                    model.pages = pages;
+                });
         }
         init();
 
-        function createPage(page) {
-            pageService.createPage(model.websiteId, page);
-            $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+        function createPage (page) {
+            page.websiteId = model.websiteId;
+            pageService
+                .createPage(page)
+                .then(function () {
+                    $location.url("/user/"+model.userId+"/website/"+model.websiteId+"/page");
+                });
         }
     }
 })();

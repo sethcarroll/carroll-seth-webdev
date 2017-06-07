@@ -1,11 +1,75 @@
-<div ng-switch="model.widget.widgetType">
-    <div ng-switch-when="HEADING">
-        <ng-include src="'/assignment/views/widget/editors/widget-heading-edit.view.client.html'">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Edit Widget</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#/user/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="#/login">Logout</a></li>
+                <li class="active"><a href="#!">Home<span class="sr-only">(current)</span></a></li>
+
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a ng-click="model.updateWidget(model.widgetId, model.oldWidget)">
+                        <span class="glyphicon glyphicon-menu-left pull-left"></span>
+                    </a>
+                </div>
+                <div class="col-sm-6">
+                    <a ng-click="model.updateWidget(model.widgetId, model.widget)">
+                        <span class="glyphicon glyphicon-ok pull-right"></span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+
+    <div ng-switch="model.widget.widgetType">
+        <div ng-switch-when="HEADING">
+            <div ng-include="'/assignment/views/widget/editors/widget-heading-edit.view.client.html'"></div>
+        </div>
+
+        <div ng-switch-when="IMAGE">
+            <div ng-include="'/assignment/views/widget/editors/widget-image-edit.view.client.html'"></div>
+        </div>
+
+        <div ng-switch-when="YOUTUBE">
+            <div ng-include="'/assignment/views/widget/editors/widget-youtube-edit.view.client.html'"></div>
+        </div>
     </div>
-    <div ng-switch-when="IMAGE">
-        <ng-include src="'/assignment/views/widget/editors/widget-image-edit.view.client.html'">
-    </div>
-    <div ng-switch-when="YOUTUBE">
-        <ng-include src="'/assignment/views/widget/editors/widget-youtube-edit.view.client.html'">
-    </div>
+    <a class="btn btn-danger btn-block"
+       ng-click="model.deleteWidget(model.widgetId)">Delete</a>
+
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Edit Widget
+            </a>
+        </div>
+    </div>
+</nav>

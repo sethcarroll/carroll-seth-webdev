@@ -43,21 +43,24 @@
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
-                <div class="col-xs-11">
+                <div class="col-xs-9">
                     Page Name
                 </div>
-                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
-                    <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
-                </a>
+                <div class="col-xs-3">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                        <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
+                    </a>
+                </div>
+
             </div>
         </li>
 
         <li class="list-group-item" ng-repeat="page in model.pages">
             <div class="row">
-                 <div class="col-xs-11">
+                 <div class="col-xs-9">
                      <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}} </a>
                 </div>
-                <div class="col-xs-1">
+                <div class="col-xs-3">
                     <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </div>

@@ -30,7 +30,7 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-sm-6">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                         <span class="glyphicon glyphicon-menu-left pull-left"></span>
                     </a>
                 </div>
@@ -43,27 +43,29 @@
         </li>
     </ul>
 
-    <div ng-repeat="widget in model.widgets"
-         class="container-fluid">
-        <div class="stc-widget">
-            <div class="stc-widget-toolbar pull-right">
+    <div class="widget-list" wbdv-directives="">
+        <div ng-repeat="widget in model.widgets" class="stc-widget">
+            <div class="stc-widget-toolbar">
                 <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
+                <a href="">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </a>
             </div>
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
-                    <ng-include src="'/assignment/views/widget/templates/widget-heading.view.client.html'">
+                    <div ng-include="'views/widget/templates/widget-heading.view.client.html'"></div>
                 </div>
+
                 <div ng-switch-when="IMAGE">
-                    <ng-include src="'/assignment/views/widget/templates/widget-image.view.client.html'">
+                    <div ng-include="'views/widget/templates/widget-image.view.client.html'"></div>
                 </div>
+
                 <div ng-switch-when="YOUTUBE">
-                    <ng-include src="'/assignment/views/widget/templates/widget-youtube.view.client.html'">
+                    <div ng-include="'views/widget/templates/widget-youtube.view.client.html'"></div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

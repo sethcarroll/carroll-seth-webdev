@@ -1,96 +1,45 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Image Widget</a>
-        </div>
+<label for="name">Name</label>
+<input type="text"
+       id="name"
+       placeholder="Widget Name"
+       class="form-control"
+       ng-model="model.widget.name"/>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#/login">Logout</a></li>
-                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
+<label for="text">Text</label>
+<input type="text"
+       id="text"
+       placeholder="Widget Text"
+       class="form-control"
+       ng-model="model.widget.text"/>
 
+<label for="url">URL</label>
+<input type="text"
+       id="url"
+       placeholder="Widget URL"
+       class="form-control"
+       ng-model="model.widget.url"/>
 
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-<div class="container-fluid">
-
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-sm-6">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
-                        <span class="glyphicon glyphicon-menu-left pull-left"></span>
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <a href="model.updateWidget(model.widget)">
-                        <span class="glyphicon glyphicon-ok pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-    </ul>
+<label for="width">Width (%)</label>
+<input type="text"
+       id="width"
+       placeholder="100%"
+       class="form-control"
+       ng-width="model.widget.width"/>
 
 
-    <label for="name">Name</label>
-    <input type="text"
-           id="name"
-           class="form-control"
-           ng-model="model.widget.name"/>
+<label>Search photos on Flickr</label>
+<a class="btn btn-info btn-block"
+   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search">
+    Search
+</a>
 
-    <label for="text">Text</label>
-    <input type="text"
-           id="text"
-           class="form-control"
-           ng-model="model.widget.text"/>
-
-    <label for="url">URL</label>
-    <input type="text"
-           id="url"
-           class="form-control"
-           ng-model="model.widget.url"/>
-
-    <label for="width">Width (%)</label>
-    <input type="text"
-           id="width"
-           class="form-control"
-           ng-width="model.widget.width"/>
-
-
-    <label for="file">File Upload</label>
-    <input type="file"
-           id="file"
-           class="form-control"/>
-
-    <a ng-click="model.updateWidget(model.widget)"
-       class="btn btn-block btn-primary">Upload Image</a>
-
-    <a ng-click="model.deleteWidget()"
-       class="btn btn-block btn-danger">
-        Delete
-    </a>
-
-</div>
-
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Image Widget
-            </a>
-        </div>
-    </div>
-</nav>
+<label>Upload Image</label>
+<form action="/api/upload" method="post" enctype="multipart/form-data">
+    <input name="myFile" type="file" class="form-control"/>
+    <input name="width" value="{{model.widget.width}}" style="display: none"/>
+    <input name="userId" value="{{model.userId}}" style="display: none"/>
+    <input name="websiteId" value="{{model.websiteId}}" style="display: none"/>
+    <input name="pageId" value="{{model.pageId}}" style="display: none"/>
+    <input name="widgetId" value="{{model.widget._id}}" style="display: none"/>
+    <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+</form>

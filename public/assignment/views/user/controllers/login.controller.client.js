@@ -7,13 +7,26 @@
 
         var model = this;
 
-        model.checkLogin = function(username, password) {
-            var user = userService.findUserByCredentials(username, password);
-            if (user !== null) {
-                $location.url("/user/"+user['_id']);
+        model.checkLogin = login;
+
+        function login(username, password) {
+
+            userService
+                .findUserByCredentials(username, password)
+                .then(login, handleError);
+
+            function login(found) {
+                if (found) {
+                    $location.url("/user/" + found._id);
+
+                }
+                else {
+                    model.message = "Uh-oh. Either your username or password were incorrect!";
+                }
             }
-            else {
-                model.message = "Uh-oh. We couldn't find a user by the name of " + username + "!";
+
+            function handleError() {
+                model.message = "Uh-oh. Either your username or password were incorrect!";
             }
         }
     }

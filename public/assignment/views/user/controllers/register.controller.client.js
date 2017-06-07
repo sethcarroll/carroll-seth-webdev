@@ -6,28 +6,66 @@
     function registerController(userService, $location) {
 
         var model = this;
+        model.register = register;
 
         function register(username, password, verifyPassword, email, firstName, lastName) {
-            if (password !== verifyPassword) {
-                model.message = "Uh oh! The entered passwords didn't match!";
+            if (username === null || username === '' || typeof username === 'undefined') {
+                model.error = 'You must enter a username.';
+                return;
             }
-            else {
-                var exists = userService.findUserByUsername(username);
-                if (exists !== null) {
-                    model.message = "Whoops! " + username + "is already taken!";
+            if (password === null || password === '' || typeof password === 'undefined') {
+                model.error = 'You must enter a password.';
+                return;
+            }
+            if (verifyPassword === null || verifyPassword === '' || typeof verifyPassword === 'undefined') {
+                model.error = 'Please verify your password.';
+                return;
+            }
+            if (email === null || email === '' || typeof email === 'undefined') {
+                model.error = 'You must enter a valid email address.';
+                return;
+            }
+            if (firstName === null || firstName === '' || typeof firstName === 'undefined') {
+                model.error = 'You must enter your first name.';
+                return;
+            }
+            if (lastName === null || lastName === '' || typeof lastName === 'undefined') {
+                model.error = 'You must enter your last name.';
+                return;
+            }
+
+            if (password !== verifyPassword) {
+                model.error = "Uh oh! The entered passwords didn't match!";
+                return;
+            }
+
+            userService
+                .findUserByUsername(username)
+                .then(checkUser);
+
+            function checkUser(user) {
+                if (user) {
+                    model.error = "Sorry! The username you entered is not available!";
                 }
                 else {
-                    var user = {
+                    var newUser = {
                         username: username,
                         password: password,
-                        email: email,
                         firstName: firstName,
-                        lastName: lastName
-                    };
+                        lastName: lastName,
+                        email: email
+                };
 
-                    userService.createUser(user);
-                    $location.url('/user/'+user['_id']);
+                    userService
+                        .createUser(newUser)
+                        .then(register);
+
+                    function register(user) {
+                        $location.url('/user/' + user._id);
+                    }
+
                 }
+
             }
         }
     }

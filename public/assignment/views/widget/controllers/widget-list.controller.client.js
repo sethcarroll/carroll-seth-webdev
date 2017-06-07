@@ -12,7 +12,12 @@
         function init() {
             model.trust = trust;
             model.generateYoutubeLink = generateYoutubeLink;
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+
+            widgetService
+                .findAllWidgetsForPage(model.pageId)
+                .then(function (widgets) {
+                    model.widgets = widgets;
+                });
         }
         init();
 
@@ -26,7 +31,6 @@
             var videoId = parts[parts.length - 1];
             link = embed + videoId;
             return $sce.trustAsResourceUrl(link);
-            console.log(link);
         }
     }
 })();
