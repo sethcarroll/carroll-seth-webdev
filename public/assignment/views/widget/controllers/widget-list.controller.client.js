@@ -26,11 +26,10 @@
         }
 
         function generateYoutubeLink(url) {
-            var embed = 'https://www.youtube.com/embed/';
-            var parts = url.split('/');
-            var videoId = parts[parts.length - 1];
-            link = embed + videoId;
-            return $sce.trustAsResourceUrl(link);
+            var embedUrl = "https://www.youtube.com/embed/";
+            var urlParts = url.split('=');
+            embedUrl += urlParts[urlParts.length - 1];
+            return $sce.trustAsResourceUrl(embedUrl);
         }
     }
 })();

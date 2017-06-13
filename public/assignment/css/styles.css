@@ -30,13 +30,9 @@ body {
     margin-top: 1em;
 }
 .stc-vidcontainer {
-    /*position: relative;*/
-    /*width: 100%;*/
-    /*height: 0;*/
-    /*padding-bottom: 56.25%;*/
-
     position: relative;
     padding-bottom: 56.25%;
+    height: 0;
     padding-top: 60px; overflow: hidden;
 }
 .video {

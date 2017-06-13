@@ -4,24 +4,25 @@
         .directive('wbdvDirectives', sortableDir);
 
     function sortableDir(widgetService) {
-        var initial = -1;
-        var final = -1;
-        function linkFunction(scope, element){
+        var start = -1;
+        var end = -1;
+        function linkFunc(scope, element){
             element.sortable({
                 axis: "y",
                 scroll: false,
                 start: function(event, ui) {
-                    initial = ui.item.index();
+                    start = ui.item.index();
                 },
                 stop: function(event, ui) {
-                    final = ui.item.index();
+                    end = ui.item.index();
                     widgetService
-                        .sortWidget(initial, final);
+                        .reorderWidget(start, end);
+
                 }
             })
         }
         return {
-            link: linkFunction
+            link: linkFunc
         }
     }
 })();

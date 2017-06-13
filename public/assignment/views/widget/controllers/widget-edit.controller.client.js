@@ -3,7 +3,7 @@
         .module('WebAppMaker')
         .controller('widgetEditController', widgetEditController);
 
-    function widgetEditController($routeParams, widgetService, $location) {
+    function widgetEditController($routeParams, widgetService, $location, $timeout) {
 
         var model = this;
         model.userId = $routeParams['userId'];

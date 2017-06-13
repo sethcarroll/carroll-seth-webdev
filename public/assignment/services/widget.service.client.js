@@ -10,6 +10,7 @@
         this.findWidgetById = findWidgetById;
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
+        this.reorderWidget = reorderWidget;
 
         function createWidget (widget, pageId) {
             var url = "/api/page/" + pageId + "/widget";
@@ -51,6 +52,15 @@
             var url = "/api/widget/" + widgetId;
             return $http
                 .delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function reorderWidget (start, end) {
+            var url = "/page/"+ $routeParams['pid'] + "/widget?start=" + start + "&end=" + end;
+            return $http
+                .put(url)
                 .then(function (response) {
                     return response.data;
                 });
