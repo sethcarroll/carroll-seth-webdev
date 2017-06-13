@@ -58,8 +58,8 @@
                     <div ng-include="'views/widget/templates/widget-heading.view.client.html'"></div>
                 </div>
 
-                <div ng-switch-when="HTML">
-                    <div ng-include="'views/widget/templates/widget-html.view.client.html'"></div>
+                <div ng-switch-when="HTML"
+                     ng-bind-html="model.trust(widget.text)">
                 </div>
 
                 <div ng-switch-when="IMAGE">
