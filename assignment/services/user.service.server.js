@@ -53,8 +53,8 @@ app.get ('/api/checkLoggedIn', checkLoggedIn);
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/#/profile',
-        failureRedirect: '/#/login'
+        successRedirect: '/assignment/#/profile',
+        failureRedirect: '/assignment/#/login'
     }));
 
 function createUser(req, res) {
