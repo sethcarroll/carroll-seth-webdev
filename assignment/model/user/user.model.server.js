@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt = require("bcrypt-nodejs");
 var userSchema = require('./user.schema.server');
 var userModel = mongoose.model('UserModel', userSchema);
 
@@ -11,10 +12,12 @@ userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 userModel.addWebsite = addWebsite;
 userModel.deleteWebsite = deleteWebsite;
+userModel.findUserByGoogleId = findUserByGoogleId;
 
 module.exports = userModel;
 
 function createUser(user) {
+    user.password = bcrypt.hashSync(user.password);
     return userModel.create(user);
 }
 
@@ -31,17 +34,26 @@ function findUserByUsername(username) {
 }
 
 function findUserByCredentials(username, password) {
-    return userModel.findOne({
-        username: username,
-        password: password
-    });
+    return userModel
+        .findOne({username: username})
+        .then(function(user) {
+            if (user && bcrypt.compareSync(password, user.password)) {
+                return user;
+            } else {
+                return null;
+            }
+        });
 }
 
 function updateUser(userId, newUser) {
-    // if fields shouldn't be updateable, delete corresponding fields
-    delete newUser.username;
-    delete newUser.password;
-    return userModel.update({_id: userId}, {$set: newUser});
+    return userModel.update({_id: userId}, {
+        $set: {
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            email: newUser.email,
+            phone: newUser.phone
+        }
+    })
 }
 
 function deleteUser(userId) {
@@ -66,4 +78,10 @@ function deleteWebsite(websiteId) {
             user.websites.splice(index, 1);
             return user.save();
         });
+}
+
+function findUserByGoogleId(googleId) {
+    return userModel
+        .findOne({"google.id" : googleId});
+
 }

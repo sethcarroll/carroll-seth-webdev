@@ -1,13 +1,21 @@
-<label for="name">Name</label>
-<input type="text"
-       id="name"
-       placeholder="Widget Name"
-       class="form-control"
-       ng-model="model.widget.name"/>
+<form class="simple-form" novalidate>
+    <label for="name">Name</label>
+    <input type="text"
+           id="name"
+           placeholder="Widget Name"
+           class="form-control"
+           ng-model="model.widget.name"
+           required/>
 
-<div ng-model="model.widget.text"
-     text-angular
-     ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+    <div ng-model="model.widget.text"
+         text-angular
+         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
         ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
         ['indent','outdent'],['html']]">
-</div>
+    </div>
+
+    <input type="submit"
+           class="btn btn-block btn-primary"
+           value="Confirm"
+           ng-click="model.updateWidget(model.widgetId, model.widget)">
+</form>

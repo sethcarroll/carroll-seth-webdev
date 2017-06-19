@@ -12,13 +12,12 @@
         function login(username, password) {
 
             userService
-                .findUserByCredentials(username, password)
+                .login(username, password)
                 .then(login, handleError);
 
             function login(found) {
                 if (found) {
-                    $location.url("/user/" + found._id);
-
+                    $location.url("/profile");
                 }
                 else {
                     model.message = "Uh-oh. Either your username or password were incorrect!";

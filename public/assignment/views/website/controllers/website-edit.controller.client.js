@@ -3,11 +3,12 @@
         .module('WebAppMaker')
         .controller('websiteEditController', websiteEditController);
 
-    function websiteEditController($routeParams, websiteService, $location) {
+    function websiteEditController(currentUser, $routeParams, websiteService, $location) {
 
         var model = this;
 
-        model.userId = $routeParams['userId'];
+        model.currentUser = currentUser;
+        model.userId = currentUser['_id'];
         model.websiteId = $routeParams['websiteId'];
         model.updateWebsite = updateWebsite;
         model.deleteWebsite = deleteWebsite;

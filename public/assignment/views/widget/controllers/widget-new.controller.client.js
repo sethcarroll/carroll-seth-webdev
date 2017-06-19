@@ -3,9 +3,11 @@
         .module('WebAppMaker')
         .controller('widgetNewController', widgetNewController);
 
-    function widgetNewController($routeParams, widgetService, $location) {
+    function widgetNewController(currentUser, $routeParams, widgetService, $location) {
         var model = this;
-        model.userId = $routeParams['userId'];
+
+        model.currentUser = currentUser;
+        model.userId = currentUser['_id'];
         model.websiteId = $routeParams['websiteId'];
         model.pageId = $routeParams['pageId'];
         model.createWidget = createWidget;

@@ -1,28 +1,36 @@
-<label for="name">Name</label>
-<input type="text"
-       id="name"
-       placeholder="Widget Name"
-       class="form-control"
-       ng-model="model.widget.name"/>
+<form class="simple-form" novalidate>
+    <label for="name">Name</label>
+    <input type="text"
+           id="name"
+           placeholder="Widget Name"
+           class="form-control"
+           ng-model="model.widget.name"
+           required/>
 
-<label for="text">Text</label>
-<input type="text"
-       id="text"
-       class="form-control"
-       ng-model="model.widget.text"/>
+    <label for="text">Text</label>
+    <input type="text"
+           id="text"
+           class="form-control"
+           ng-model="model.widget.text"/>
 
-<label for="rows">Rows</label>
-<input id="rows"
-       class="form-control"
-       type="number"
-       ng-model="model.widget.rows"/>
+    <label for="rows">Rows</label>
+    <input id="rows"
+           class="form-control"
+           type="number"
+           ng-model="model.widget.rows"/>
 
-<label for="placeholder">Placeholder</label>
-<input id="placeholder"
-       class="form-control"
-       ng-model="model.widget.placeholder"/>
+    <label for="placeholder">Placeholder</label>
+    <input id="placeholder"
+           class="form-control"
+           ng-model="model.widget.placeholder"/>
 
-<label for="formatted">Formatted</label>
-<input id="formatted"
-       type="checkbox"
-       ng-model="model.widget.formatted"/>
+    <label for="formatted">Formatted</label>
+    <input id="formatted"
+           type="checkbox"
+           ng-model="model.widget.formatted"/>
+
+    <input type="submit"
+           class="btn btn-block btn-primary"
+           value="Confirm"
+           ng-click="model.updateWidget(model.widgetId, model.widget)">
+</form>

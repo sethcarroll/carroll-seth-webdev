@@ -27,25 +27,34 @@
         <h1>Login</h1>
         <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
 
+        <form novalidate class="simple-form">
         <label for="username">Username</label>
         <input type="text"
                id="username"
                placeholder="username"
                class="form-control"
-               ng-model="username"/>
+               ng-model="username"
+               required/>
 
         <label for="password">Password</label>
         <input type="password"
                id="password"
                placeholder="password"
                class="form-control"
-               ng-model="password"/>
+               ng-model="password"
+               required/>
 
         <a ng-click="model.checkLogin(username, password)"
            class="btn btn-block btn-primary">Login</a>
+        </form>
 
         <a href="#/register"
            class="btn btn-block btn-success">Register</a>
+
+        <a href="/auth/google" class="btn btn-danger btn-block">
+            <span class="fa fa-google-plus"></span>
+            Google
+        </a>
     </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

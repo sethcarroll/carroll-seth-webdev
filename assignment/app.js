@@ -1,3 +1,6 @@
+var app = require('../express');
+var bodyParser = require('body-parser');
+
 var mongoose = require('mongoose');
 mongoose.Promise = require('q').Promise;
 

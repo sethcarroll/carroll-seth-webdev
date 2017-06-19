@@ -14,9 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#/login">Logout</a></li>
+                <li><a href="#/profile">{{model.currentUser.firstName}}</a></li>
                 <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
@@ -77,20 +75,28 @@
     </div>
 
     <div class="col-sm-8 col-xs-12">
-        <label for="name">Name</label>
-        <input type="text"
-               id="name"
-               placeholder="Name"
-               class="form-control"
-               ng-model="website.name"/>
+        <form novalidate class="simple-form">
+            <label for="name">Name</label>
+            <input type="text"
+                   id="name"
+                   placeholder="Name"
+                   class="form-control"
+                   ng-model="website.name"
+                   required/>
 
-        <label for="description">Description</label>
-        <textarea id="description"
-                  placeholder="Description"
-                  cols="30"
-                  rows="3"
-                  class="form-control"
-                  ng-model="website.description"></textarea>
+            <label for="description">Description</label>
+            <textarea id="description"
+                      placeholder="Description"
+                      cols="30"
+                      rows="3"
+                      class="form-control"
+                      ng-model="website.description"></textarea>
+
+            <input type="submit"
+                   class="btn btn-block btn-primary"
+                   ng-click="model.createWebsite(website)"
+                   value="Create Website">
+        </form>
     </div>
 </div>
 

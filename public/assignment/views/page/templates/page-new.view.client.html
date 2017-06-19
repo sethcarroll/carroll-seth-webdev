@@ -14,9 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#/user/{{model.userId}}l">
-                    <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#/login">Logout</a></li>
+                <li><a href="#/profile">{{model.currentUser.firstName}}</a></li>
                 <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
@@ -76,18 +74,24 @@
     </div>
 
         <div class="col-sm-8 col-xs-12">
-            <label for="name">Page Name</label>
-            <input id="name"
-                   placeholder="Name"
-                   class="form-control"
-                   ng-model="page.name"/>
+            <form class="simple-form" novalidate>
+                <label for="name">Page Name</label>
+                <input id="name"
+                       placeholder="Name"
+                       class="form-control"
+                       ng-model="page.name"
+                       required/>
 
-            <label for="title">Page Title</label>
-            <input id="title"
-                   placeholder="Title"
-                   class="form-control"
-                   ng-model="page.description"/>
-
+                <label for="title">Page Title</label>
+                <input id="title"
+                       placeholder="Title"
+                       class="form-control"
+                       ng-model="page.description"/>
+                <input type="submit"
+                       class="btn btn-block btn-primary"
+                       value="Create Page"
+                       ng-click="model.createPage(page)">
+            </form>
         </div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom">

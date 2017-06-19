@@ -48,7 +48,7 @@
                     model.error = "Sorry! The username you entered is not available!";
                 }
                 else {
-                    var newUser = {
+                    var user = {
                         username: username,
                         password: password,
                         firstName: firstName,
@@ -57,15 +57,14 @@
                 };
 
                     userService
-                        .createUser(newUser)
-                        .then(register);
+                        .register(user)
+                        .then(goToProfile);
 
-                    function register(user) {
-                        $location.url('/user/' + user._id);
+                    function goToProfile(user) {
+                        $location.url('/profile');
                     }
 
                 }
-
             }
         }
     }

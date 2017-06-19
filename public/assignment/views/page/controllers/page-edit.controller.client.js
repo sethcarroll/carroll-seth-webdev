@@ -3,11 +3,12 @@
         .module('WebAppMaker')
         .controller('pageEditController', pageEditController);
 
-    function pageEditController($routeParams, pageService, $location) {
+    function pageEditController(currentUser, $routeParams, pageService, $location) {
 
         var model = this;
 
-        model.userId = $routeParams['userId'];
+        model.currentUser = currentUser;
+        model.userId = currentUser['_id'];
         model.websiteId = $routeParams['websiteId'];
         model.pageId = $routeParams['pageId'];
         model.updatePage = updatePage;

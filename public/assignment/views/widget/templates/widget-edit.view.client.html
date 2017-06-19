@@ -15,9 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#/login">Logout</a></li>
+                <li><a href="#/profile">{{model.currentUser.firstName}}</a></li>
                 <li class="active"><a href="#!">Home<span class="sr-only">(current)</span></a></li>
 
 
@@ -67,6 +65,7 @@
             <div ng-include="'/assignment/views/widget/editors/widget-youtube-edit.view.client.html'"></div>
         </div>
     </div>
+    <br>
     <a class="btn btn-danger btn-block"
        ng-click="model.deleteWidget(model.widgetId)">Delete</a>
 

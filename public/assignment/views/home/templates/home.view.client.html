@@ -14,8 +14,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#/register">Register</a></li>
-                <li><a href="#/login">Login</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#/register">Register</a></li>
+                <li ng-if="!model.currentUser._id"><a href="#/login">Login</a></li>
+                <li ng-if="model.currentUser._id"><a href="#/profile">{{model.currentUser.firstName}}</a></li>
                 <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
             </ul>
@@ -36,7 +37,10 @@
     </div>
 
     <div class="container-fluid">
-        <p>
+        <p ng-if="model.currentUser._id">
+            Hello {{model.currentUser.firstName}}! We hope you enjoy this useful tool to design your own websites!
+        </p>
+        <p ng-if="!model.currentUser._id">
             Please <a href="#/login">login</a> or <a href="#/register">register</a> to gain access to this useful tool to design your own websites!
         </p>
     </div>

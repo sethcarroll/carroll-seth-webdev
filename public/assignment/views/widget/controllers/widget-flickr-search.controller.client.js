@@ -3,9 +3,11 @@
         .module('WebAppMaker')
         .controller('flickrSearchController', flickrController);
 
-    function flickrController(flickrService, widgetService, $routeParams, $location) {
+    function flickrController(currentUser, flickrService, widgetService, $routeParams, $location) {
         var model = this;
-        var userId = $routeParams['userId'];
+
+        model.currentUser = currentUser;
+        var userId = currentUser['_id'];
         var websiteId = $routeParams['websiteId'];
         var pageId = $routeParams['pageId'];
         var widgetId = $routeParams['widgetId'];

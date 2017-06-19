@@ -1,9 +1,11 @@
- <label for="name">Name</label>
+<form class="simple-form" novalidate>
+    <label for="name">Name</label>
     <input type="text"
            id="name"
            placeholder="Widget Name"
            class="form-control"
-           ng-model="model.widget.name"/>
+           ng-model="model.widget.name"
+           required/>
 
     <label for="text">Text</label>
     <input type="text"
@@ -25,3 +27,9 @@
            placeholder="100%"
            class="form-control"
            ng-model="model.widget.width"/>
+
+    <input type="submit"
+           class="btn btn-block btn-primary"
+           value="Confirm"
+           ng-click="model.updateWidget(model.widgetId, model.widget)">
+</form>

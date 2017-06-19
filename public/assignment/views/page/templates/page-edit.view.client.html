@@ -14,9 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a href="#/login">Logout</a></li>
+                <li><a href="#/profile">{{model.currentUser.firstName}}</a></li>
                 <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 
 
@@ -78,13 +76,15 @@
 
 
         <div class=" col-sm-8 col-xs-12">
+            <form class="simple-form" novalidate>
             <label for="name">Page Name</label>
             <input id="name"
                    placeholder="Name"
                    type="text"
                    class="form-control"
                    value=""
-                   ng-model="model.page.name"/>
+                   ng-model="model.page.name"
+                   required/>
 
             <label for="title">Page Title</label>
             <input id="title"
@@ -93,6 +93,11 @@
                    class="form-control"
                    value=""
                    ng-model="model.page.description"/>
+            <input type="submit"
+                   ng-click="model.updatePage(model.pageId, model.page)"
+                   value="Confirm Edits"
+                   class="btn btn-block btn-primary">
+            </form>
 
             <a ng-click="model.deletePage(model.pageId)"
                class="btn btn-block btn-danger">

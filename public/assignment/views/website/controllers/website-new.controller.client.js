@@ -3,10 +3,11 @@
         .module('WebAppMaker')
         .controller('websiteNewController', websiteNewController);
 
-    function websiteNewController(websiteService, $location, $routeParams) {
+    function websiteNewController(currentUser, websiteService, $location, $routeParams) {
 
         var model = this;
-        model.userId = $routeParams['userId'];
+        model.currentUser = currentUser;
+        model.userId = currentUser['_id'];
         model.createWebsite = createWebsite;
 
         function init() {

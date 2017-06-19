@@ -1,25 +1,33 @@
-<label for="name">Name</label>
-<input type="text"
-       id="name"
-       placeholder="Widget Name"
-       class="form-control"
-       ng-model="model.widget.name"/>
+<form class="simple-form" novalidate>
+    <label for="name">Name</label>
+    <input type="text"
+           id="name"
+           placeholder="Widget Name"
+           class="form-control"
+           ng-model="model.widget.name"
+           required/>
 
-<label for="text">Text</label>
-<input type="text"
-       id="text"
-       placeholder="Widget Text"
-       class="form-control"
-       ng-model="model.widget.text"/>
+    <label for="text">Text</label>
+    <input type="text"
+           id="text"
+           placeholder="Widget Text"
+           class="form-control"
+           ng-model="model.widget.text"/>
 
-<label for="size">Size</label>
-<select id="size"
-        class="form-control"
-        ng-model="model.widget.size">
-    <option value="1">1 (Largest)</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6 (smallest)</option>
-</select>
+    <label for="size">Size</label>
+    <select id="size"
+            class="form-control"
+            ng-model="model.widget.size">
+        <option value="1">1 (Largest)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6 (smallest)</option>
+    </select>
+
+    <input type="submit"
+           class="btn btn-block btn-primary"
+           value="Confirm"
+           ng-click="model.updateWidget(model.widgetId, model.widget)">
+</form>

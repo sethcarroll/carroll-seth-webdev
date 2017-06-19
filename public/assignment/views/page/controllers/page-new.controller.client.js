@@ -3,9 +3,10 @@
         .module('WebAppMaker')
         .controller('pageNewController', pageNewController);
 
-    function pageNewController(pageService, $routeParams, $location) {
+    function pageNewController(currentUser, pageService, $routeParams, $location) {
         var model = this;
-        model.userId = $routeParams['userId'];
+        model.currentUser = currentUser;
+        model.userId = currentUser['_id'];
         model.websiteId = $routeParams['websiteId'];
         model.createPage = createPage;
 
