@@ -8,7 +8,7 @@
 
         var apiKey = "599c8e2895be99f0f1487aa143b6b2a1";
         var apiRoot = "https://ws.audioscrobbler.com/2.0/";
-        var diceRoot = "http://cors.io/?https://rolz.org/api/?";
+        var diceRoot = "https://cors.io/?https://rolz.org/api/?";
         model.searchAlbums = searchAlbums;
         model.getThumbnail = getThumbnail;
         model.getAlbumArt = getAlbumArt;
