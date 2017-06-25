@@ -29,14 +29,17 @@ function deleteUser(req, res) {
 }
 
 function selectUser(req, res) {
-    var userId = req.params.userId;
+    var scope = {};
     userModel
-        .deleteUser(userId)
-        .then(function (status) {
-            var scope = {
-                users: users
-            };
-            res.redirect('/lecture/ejs/crud/user', scope);
+        .findUserById(req.params.userId)
+        .then(function (user) {
+            scope.selectedUser = user;
+            userModel
+                .findAllUsers()
+                .then(function(users) {
+                    scope.users = users;
+                    res.render('/lecture/ejs/crud/user', scope);
+                });
         });
 }
 
