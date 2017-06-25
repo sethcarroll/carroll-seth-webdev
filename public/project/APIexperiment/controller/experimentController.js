@@ -3,12 +3,13 @@
         .module('diceRole')
         .controller('experimentController', experimentController);
 
-    function experimentController($http){
+    function experimentController($http, $sce){
         var model = this;
 
         var apiKey = "599c8e2895be99f0f1487aa143b6b2a1";
         var apiRoot = "https://ws.audioscrobbler.com/2.0/";
-        var diceRoot = "https://cors.io/?https://rolz.org/api/?";
+        var diceRoot = "https://rolz.org/api/?";
+        var diceRootLong = "http://cors.io/?https://rolz.org/api/?";
         model.searchAlbums = searchAlbums;
         model.getThumbnail = getThumbnail;
         model.getAlbumArt = getAlbumArt;
@@ -46,15 +47,21 @@
 
         function diceRoll(dice) {
             model.diceModifier = dice.modifier;
-            $http.get(diceRoot
-                + dice.number
-                + "d"
-                + dice.type
-                + ".json")
+
+            var url = diceRoot + dice.number + "d" + dice.type + ".jsonp";
+            var trustedURL = $sce.trustAsResourceUrl(url);
+            $http.jsonp(trustedURL, {jsonpCallbackParam: 'callback'})
                 .then(function(response) {
-                    model.dice = response.data;
-                    model.diceResult = Number(model.dice.result) + dice.modifier;
-                });
+                    console.log(response);
+                model.dice = response.data;
+                model.diceResult = Number(model.dice.result) + dice.modifier;
+            });
+            //
+            // $http.get(diceRootLong
+            //     + dice.number
+            //     + "d"
+            //     + dice.type
+            //     + ".json")
         }
     }
 })();
