@@ -44,9 +44,9 @@
                 templateUrl: 'views/tools/templates/music.view.client.html',
                 controller: 'musicController',
                 controllerAs: 'model',
-                // resolve: {
-                //     currentPlayer: checkLoggedIn
-                // }
+                resolve: {
+                    currentPlayer: checkLoggedIn
+                }
             })
             .when('/dice', {
                 templateUrl: 'views/tools/templates/dice.view.client.html',
@@ -115,7 +115,7 @@
                 controller: 'adminPlayersController',
                 controllerAs: 'model',
                 resolve: {
-                    currentUser: checkAdmin
+                    curerntPlayer: checkAdmin
                 }
             })
             .when('/admin/players', {
@@ -123,7 +123,7 @@
                 controller: 'adminPlayersController',
                 controllerAs: 'model',
                 resolve: {
-                    currentUser: checkAdmin
+                    currentPlayer: checkAdmin
                 }
             })
             .when('/admin/player/:userId', {
@@ -131,7 +131,7 @@
                 controller: 'adminPlayerEditController',
                 controllerAs: 'model',
                 resolve: {
-                    currentUser: checkAdmin
+                    currentPlayer: checkAdmin
                 }
             });
     }

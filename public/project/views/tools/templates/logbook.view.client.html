@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
 
-</body>
-</html>
+        <a href="#/profile">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
+
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
+</nav>
+
+<div class="container-fluid stc-contentpane">
+
+    <li class="list-group-item" ng-repeat="message in model.messages">
+        <div class="row">
+            <div class="col-xs-9 pull-left">
+                <a href="">{{mesaage._user.name}} </a>
+            </div>
+            <div class="col-xs-3">
+                <a ng-if="campaign._user._id == model.userId" ng-click="model.deleteMessage(message._id)">
+                    <span class="glyphicon glyphicon-remove pull-right"></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                {{message.text}}
+            </p>
+        </div>
+    </li>
+
+</div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+        <div class="col-xs-11">
+            <input type="text"
+                   id="message"
+                   placeholder="message"
+                   class="form-control"
+                   ng-model="message"
+                   required/>
+        </div>
+        <div class="col-xs-1">
+            <a ng-click="model.createMessage('message')">
+                <span class="navbar-text pull-right glyphicon glyphicon-comment"></span>
+            </a>
+        </div>
+    </div>
+</nav>
