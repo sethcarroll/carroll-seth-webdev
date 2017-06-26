@@ -34,6 +34,7 @@ app.use(passport.session());
 app.set('view engine', 'ejs');
 require ("./test/app.js")(app);
 require ("./assignment/app");
+require ("./project/app");
 require('./public/lecture/ejs/hello');
 require('./public/lecture/ejs/crud/');
 

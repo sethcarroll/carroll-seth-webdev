@@ -30,7 +30,7 @@
 </head>
 
 
-<body ng-app="diceRole">
+<body ng-app="DiceRole">
 
 <div class="container-fluid" ng-controller="experimentController as model">
 
@@ -95,7 +95,7 @@
             </span>
             </div>
 
-            <ul class="list-group" style="margin-top: 20px">
+            <ul ng-if="!model.album" class="list-group" style="margin-top: 20px">
                 <li class="list-group-item"
                     ng-repeat="album in model.albums"
                     ng-click="model.album = album">
@@ -103,14 +103,15 @@
                     {{album.name}} by {{album.artist}}
                 </li>
             </ul>
-        </div>
 
-        <div ng-if="model.album" class="col-sm-8">
-            <h2 class="invisible">{{model.album.name}}</h2>
-            <img ng-src="{{model.getAlbumArt(model.album)}}" alt="">
-            <h2>{{model.album.name}}</h2>
-            <h3>Artist: {{model.album.artist}}</h3>
-            <a ng-href="{{model.album.url}}" target="_blank"><h4>Access on LastFM</h4></a>
+            <div class="center-block" ng-if="model.album">
+                <h2 class="invisible">{{model.album.name}}</h2>
+                <img ng-src="{{model.getAlbumArt(model.album)}}" alt="">
+                <h2>{{model.album.name}}</h2>
+                <h3>Artist: {{model.album.artist}}</h3>
+                <a ng-href="{{model.album.url}}" target="_blank"><h4>Access on LastFM</h4></a>
+            </div>
+
         </div>
 
     </div>

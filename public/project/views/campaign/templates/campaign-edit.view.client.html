@@ -1,0 +1,92 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
+
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
+</nav>
+
+<div class="container-fluid stc-contentpane">
+
+    <div class="col-sm-4 hidden-xs">
+        <ul class="list-group">
+            <li class="list-group-item active">
+                <div class="row">
+                    <div class="col-xs-9">
+                        Campaign Name
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="#/player/{{model.userId}}/campaign/new">
+                            <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="list-group-item" ng-repeat="campaign in model.campaigns">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <a href="#/player/{{campaign._user._id}}/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
+                    </div>
+                    <div class="col-xs-3">
+                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-sm-8 col-xs-12">
+        <form class="simple-form" novalidate>
+        </form>
+        <label for="name">Name</label>
+        <input type="text"
+               id="name"
+               placeholder="Name"
+               class="form-control"
+               ng-model="model.campaign.name"
+               required/>
+
+        <label for="description">Description</label>
+        <textarea id="description"
+                  placeholder="Description"
+                  cols="30"
+                  rows="3"
+                  class="form-control"
+                  ng-model="model.campaign.description"></textarea>
+
+        <input type="submit"
+               class="btn btn-block btn-primary"
+               value="Confirm Edits"
+               ng-click="model.updateCampaign(model.campaignId, model.campaign)">
+
+        <a ng-click="model.deleteCampaign(model.campaignId)"
+           class="btn btn-block btn-danger">
+            Delete
+        </a>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Edit Campaign
+            </a>
+        </div>
+    </div>
+</nav>

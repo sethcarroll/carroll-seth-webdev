@@ -1,0 +1,52 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-12">DiceRole</h3>
+        </a>
+
+    </div>
+</nav>
+
+<div class="container-fluid stc-contentpane">
+    <h1>Login</h1>
+    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+
+    <form novalidate class="simple-form">
+        <label for="username">Username</label>
+        <input type="text"
+               id="username"
+               placeholder="username"
+               class="form-control"
+               ng-model="username"
+               required/>
+
+        <label for="password">Password</label>
+        <input type="password"
+               id="password"
+               placeholder="password"
+               class="form-control"
+               ng-model="password"
+               required/>
+
+        <br>
+        <a ng-click="model.checkLogin(username, password)"
+           class="btn btn-block btn-info">Login</a>
+        <a href="/auth/facebook" class="btn btn-block btn-primary">
+            <span class="fa fa-facebook"></span>
+            Login with Facebook
+        </a>
+    </form>
+
+
+</div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/register">
+            <h4>Need to Register?</h4>
+        </a>
+
+    </div>
+</nav>

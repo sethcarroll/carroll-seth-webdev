@@ -1,0 +1,106 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-12">DiceRole</h3>
+        </a>
+
+    </div>
+</nav>
+
+    <div class="container-fluid stc-contentpane">
+        <h1>Register</h1>
+
+        <div class="alert alert-danger" ng-show="model.error">
+            {{ model.error }}
+        </div>
+
+        <form novalidate class="simple-form">
+        <label for="username">Username:</label>
+        <input type="text"
+               id="username"
+               placeholder="username"
+               class="form-control"
+               ng-model = "username"
+               required/>
+
+        <label for="email">Email:</label>
+        <input type="text"
+               id="email"
+               placeholder="email"
+               class="form-control"
+               ng-model="email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel"
+                   id="phone"
+                   placeholder="phone number"
+                   class="form-control"
+                   ng-model="phone">
+
+            <br>
+
+        <label for="firstname">First Name:</label>
+        <input type="text"
+               id="firstname"
+               placeholder="first name"
+               class="form-control"
+               ng-model="firstName">
+
+        <label for="lastname">Last Name:</label>
+        <input type="text"
+               id="lastname"
+               placeholder="last name"
+               class="form-control"
+               ng-model="lastName">
+
+            <label for="birthday">Date of Birth:</label>
+            <input type="date"
+                   id="birthday"
+                   class="form-control"
+                   ng-model="birthday">
+
+            <br>
+
+        <label for="password">Password:</label>
+        <input type="password"
+               id="password"
+               placeholder="password"
+               class="form-control"
+               ng-model="password"
+               required>
+
+        <label for="verifypassword">Verify Password:</label>
+        <input type="password"
+               id="verifypassword"
+               placeholder="verify password"
+               class="form-control"
+               ng-model="verifyPassword"
+               required>
+
+            <br>
+
+            <label for="adminregister">Registering as an admin? Enter the secret phrase:</label>
+            <input type="password"
+                   id="adminregister"
+                   placeholder="secret code"
+                   class="form-control"
+                   ng-model="adminregister"
+            >
+
+            <br>
+
+        <a ng-click="model.register(username, password, verifyPassword, adminregister, email, phone, firstName, lastName, birthday)" class="btn btn-block btn-info">Register</a>
+        <a href="#/" class="btn btn-block btn-default">Cancel</a>
+        </form>
+    </div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/login">
+            <h4>Already Registered? Login.</h4>
+        </a>
+
+    </div>
+</nav>

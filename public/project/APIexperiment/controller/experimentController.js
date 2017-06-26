@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('diceRole')
+        .module('DiceRole')
         .controller('experimentController', experimentController);
 
     function experimentController($http, $sce){
@@ -16,6 +16,7 @@
         model.diceRoll = diceRoll;
 
         function searchAlbums(inputText) {
+            model.album = undefined;
             $http.get(apiRoot
                         + "?method=album.search&album="
                         + inputText

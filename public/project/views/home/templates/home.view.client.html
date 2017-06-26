@@ -1,0 +1,26 @@
+<div class="stc-home text-center">
+
+    <h1 class="stc-hometitle">DiceRole</h1>
+
+    <div class = stc-homebuttons>
+
+        <h2 class="">
+            <a href="#/dice/anonymous"> Dice Roller </a>
+        </h2>
+
+        <!--<p ng-if="model.currentUser._id">-->
+        <!--<h2 class="">-->
+            <!--&lt;!&ndash;<a href="#/profile"> {{model.currentUser.firstName}}'s Adventure </a>&ndash;&gt;-->
+            <!--<a href="#/profile"> Seth's Adventure</a>-->
+        <!--</h2>-->
+
+        <!--<p ng-if="!model.currentUser._id">-->
+        <h4 ng-if="model.currentUser._id" class="">
+            <a href="#/profile"> Profile </a>
+        </h4>
+        <h4 ng-if="!model.currentUser._id" class="">
+            <a href="#/login"> Login |  </a>  <a href="#/register"> Register </a>
+        </h4>
+
+    </div>
+</div>

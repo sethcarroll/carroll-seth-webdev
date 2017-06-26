@@ -1,9 +1,9 @@
 const app = require('../../../../express');
 
-app.get('/lecture/ejs/crud/user', getUserList);
-app.get("/lecture/ejs/crud/user/:userId/delete", deleteUser);
-app.get("/lecture/ejs/crud/user/:userId/select", selectUser);
-app.post('/lecture/ejs/crud/user', createUser);
+app.get('/lecture/ejs/crud/player', getUserList);
+app.get("/lecture/ejs/crud/player/:userId/delete", deleteUser);
+app.get("/lecture/ejs/crud/player/:userId/select", selectUser);
+app.post('/lecture/ejs/crud/player', createUser);
 
 var userModel = require('../../../../assignment/model/user/user.model.server.js');
 var scope;
@@ -24,7 +24,7 @@ function deleteUser(req, res) {
     userModel
         .deleteUser(userId)
         .then(function (status) {
-            res.redirect('/lecture/ejs/crud/user');
+            res.redirect('/lecture/ejs/crud/player');
             });
 }
 
@@ -38,7 +38,7 @@ function selectUser(req, res) {
                 .findAllUsers()
                 .then(function(users) {
                     scope.users = users;
-                    res.render('/lecture/ejs/crud/user', scope);
+                    res.render('/lecture/ejs/crud/player', scope);
                 });
         });
 }
@@ -47,6 +47,6 @@ function createUser(req, res) {
     userModel
         .createUser(req.body)
         .then(function (user) {
-            res.redirect('/lecture/ejs/crud/user');
+            res.redirect('/lecture/ejs/crud/player');
         });
 }

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     angular
-        .module('diceRole', []);
+        .module("DiceRole", ['ngRoute', 'textAngular']);
 })();
