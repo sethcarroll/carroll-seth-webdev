@@ -11,7 +11,7 @@
                 controller: 'homeController',
                 controllerAs: 'model',
                 resolve: {
-                    currentPlayer: checkLoggedIn
+                    currentPlayer: checkCurrentPlayer
                 }
             })
             .when('/login', {
@@ -31,6 +31,35 @@
                 resolve: {
                     currentPlayer: checkLoggedIn
                 }
+            })
+            .when('/logbook', {
+                templateUrl: 'views/tools/templates/logbook.view.client.html',
+                controller: 'logbookController',
+                controllerAs: 'model',
+                resolve: {
+                    currentPlayer: checkLoggedIn
+                }
+            })
+            .when('/music', {
+                templateUrl: 'views/tools/templates/music.view.client.html',
+                controller: 'musicController',
+                controllerAs: 'model',
+                // resolve: {
+                //     currentPlayer: checkLoggedIn
+                // }
+            })
+            .when('/dice', {
+                templateUrl: 'views/tools/templates/dice.view.client.html',
+                controller: 'diceController',
+                controllerAs: 'model',
+                resolve: {
+                    currentPlayer: checkLoggedIn
+                }
+            })
+            .when('/diceanon', {
+                templateUrl: 'views/tools/templates/dice-anon.view.client.html',
+                controller: 'diceController',
+                controllerAs: 'model'
             })
             .when('/player/:userId/campaign', {
                 templateUrl: 'views/campaign/templates/campaign-list.view.client.html',
@@ -139,9 +168,9 @@
         return deferred.promise;
     }
 
-    function checkAdmin($q, $location, userService) {
+    function checkAdmin($q, $location, playerService) {
         var deferred = $q.defer();
-        userService
+        playerService
             .checkLoggedIn()
             .then(function(currentPlayer) {
                 if(currentPlayer === '0' || currentPlayer.roles.indexOf('ADMIN') === -1) {

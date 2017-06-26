@@ -43,7 +43,7 @@
             }
 
             playerService
-                .findPlayerByPlayername(username)
+                .findPlayerByUsername(username)
                 .then(checkPlayer);
 
             function checkPlayer(user) {

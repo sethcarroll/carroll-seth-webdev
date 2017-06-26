@@ -1,44 +1,22 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Campaigns</a>
-        </div>
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="#/profile">{{model.currentPlayer.firstName}}</a></li>
-                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
+        <a href="#/profile">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
 
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
 
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
 </nav>
 
-<div class="container-fluid">
-
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <a href="#/player/{{model.userId}}">
-                            <span class="glyphicon glyphicon-menu-left pull-left"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-
+<div class="col-sm-4 hidden-xs stc-contentpane">
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
@@ -57,10 +35,12 @@
         <li class="list-group-item" ng-repeat="campaign in model.campaigns">
             <div class="row">
                 <div class="col-xs-9">
-                    <a href="#/player/{{model.userId}}/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
+                    <a href="#/player/{{campaign._user._id}}/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
                 </div>
                 <div class="col-xs-3">
-                    <a href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
+                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span></a>
                 </div>
             </div>
@@ -68,12 +48,16 @@
     </ul>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Campaigns
-            </a>
-        </div>
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/player/{{model.userId}}/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
     </div>
 </nav>

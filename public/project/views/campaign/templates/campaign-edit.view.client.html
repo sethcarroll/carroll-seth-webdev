@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/campaign">
+        <a href="#/player/{{model.userId}}/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
         </a>
 
@@ -81,12 +81,16 @@
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Edit Campaign
-            </a>
-        </div>
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/player/{{model.userId}}/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
     </div>
 </nav>

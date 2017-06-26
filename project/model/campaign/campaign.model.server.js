@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var campaignSchema = require('./campaign.schema.server');
 var campaignModel = mongoose.model('CampaignModel', campaignSchema);
 var playerModel = require('../player/player.model.server');
-var worldModel = require('../world/world.model.server');
 
 campaignModel.createCampaignForPlayer = createCampaignForPlayer;
 campaignModel.findAllCampaignsForPlayer = findAllCampaignsForPlayer;

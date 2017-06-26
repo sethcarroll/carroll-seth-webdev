@@ -1,48 +1,22 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Create New Character</a>
-        </div>
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="#/profile">{{model.currentPlayer.firstName}}</a></li>
-                <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
+        <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
 
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
 
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
 </nav>
 
-<div class="container-fluid">
-
-    <div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-sm-6">
-                    <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character">
-                        <span class="glyphicon glyphicon-menu-left pull-left"></span>
-                    </a>
-                </div>
-                <div class="col-sm-6">
-                    <a ng-click="model.createCharacter(character)">
-                        <span class="glyphicon glyphicon-ok pull-right"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-    </ul>
-    </div>
+<div class="container-fluid stc-contentpane">
 
     <div class="col-sm-4 hidden-xs">
         <ul class="list-group">
@@ -62,10 +36,12 @@
             <li class="list-group-item" ng-repeat="character in model.characters">
                 <div class="row">
                     <div class="col-xs-9">
-                        <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character/{{character._id}}/widget">{{character.name}} </a>
+                        <a href="">{{character.name}} </a>
                     </div>
                     <div class="col-xs-3">
-                        <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character/{{character._id}}">
+                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}/character/{{character._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}/character/{{character._id}}}">
                             <span class="glyphicon glyphicon-cog pull-right"></span></a>
                     </div>
                 </div>
@@ -73,20 +49,60 @@
         </ul>
     </div>
 
-        <div class="col-sm-8 col-xs-12">
-            <form class="simple-form" novalidate>
-                <label for="name">Character Name</label>
-                <input id="name"
-                       placeholder="Name"
-                       class="form-control"
-                       ng-model="character.name"
-                       required/>
+    <div class=" col-sm-8 col-xs-12">
+        <form class="simple-form" novalidate>
+            <label for="name">Name</label>
+            <input id="name"
+                   placeholder="Name"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.name"
+                   required/>
 
-                <label for="title">Character Title</label>
-                <input id="title"
-                       placeholder="Title"
-                       class="form-control"
-                       ng-model="character.description"/>
+            <label for="age">Age</label>
+            <input id="age"
+                   placeholder="age"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.age"/>
+            <label for="height">Height</label>
+            <input id="height"
+                   placeholder="height"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.height"/>
+            <label for="weight">Weight</label>
+            <input id="weight"
+                   placeholder="weight"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.weight"/>
+            <label for="Class">Class</label>
+            <input id="class"
+                   placeholder="class"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.class"/>
+            <label for="level">Level</label>
+            <input id="level"
+                   placeholder="level"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.level"/>
+            <label for="backstory">Backstory</label>
+            <textarea id="backstory"
+                      placeholder="backstory"
+                      cols="30"
+                      rows="3"
+                      class="form-control"
+                      ng-model="character.backstory"></textarea>
+            <br>
                 <input type="submit"
                        class="btn btn-block btn-primary"
                        value="Create Character"
@@ -94,12 +110,17 @@
             </form>
         </div>
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                New Character
-            </a>
-        </div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/player/{{model.userId}}/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
     </div>
 </nav>

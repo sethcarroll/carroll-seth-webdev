@@ -9,8 +9,8 @@ setFacebookConfig();
 
 passport.use(new LocalStrategy(localStrategy));
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
-passport.serializePlayer(serializePlayer);
-passport.deserializePlayer(deserializePlayer);
+passport.serializeUser(serializePlayer);
+passport.deserializeUser(deserializePlayer);
 
 
 
@@ -39,24 +39,26 @@ function setFacebookConfig() {
 
 
 
-app.get    ('/api/player/:userId', findPlayerById);
-app.get    ('/api/player', findPlayerByPlayername);
-app.get    ('/api/player', findPlayerByCredentials);
-app.post   ('/api/player', createPlayer);
-app.put    ('/api/player/:userId', updatePlayer);
-app.delete ('/api/player/:userId', deletePlayer);
+app.get    ('/api/project/:userId', findPlayerById);
+app.get    ('/api/project', findPlayerByUsername);
+app.get    ('/api/project', findPlayerByCredentials);
+app.post   ('/api/project', createPlayer);
+app.put    ('/api/project/:userId', updatePlayer);
+app.delete ('/api/project/:userId', deletePlayer);
 
-app.post  ('/api/player/login', passport.authenticate('local'), login);
-app.post ('/api/player/logout', logout);
-app.post   ('/api/player/register', register);
-app.post   ('/api/player/unregister', unregister);
-app.get ('/api/player/checkLoggedIn', checkLoggedIn);
+
+
+app.post  ('/api/project/login', passport.authenticate('local'), login);
+app.post ('/api/project/logout', logout);
+app.post   ('/api/project/register', register);
+app.post   ('/api/project/unregister', unregister);
+app.get ('/api/project/checkLoggedIn', checkLoggedIn);
 
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['public_profile', 'email'] }));
 app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect: '/assignment/#/profile',
-        failureRedirect: '/assignment/#/login'
+        successRedirect: '/project/#/profile',
+        failureRedirect: '/project/#/login'
     }));
 
 app.get('/api/admin/players', findAllPlayers);
@@ -77,11 +79,21 @@ function createPlayer(req, res) {
         });
 }
 
-function findPlayerByPlayername(req, res) {
+function findAllPlayers(req, res) {
+    playerModel
+        .findAllPlayers()
+        .then(function(players) {
+            res.json(players);
+        }, function(error) {
+            res.sendStatus(404);
+        })
+}
+
+function findPlayerByUsername(req, res) {
     var username = req.query['username'];
 
     playerModel
-        .findPlayerByPlayername(req.query['username'])
+        .findPlayerByUsername(req.query['username'])
         .then(function(user) {
             if (user === null) {
                 res.sendStatus(404);

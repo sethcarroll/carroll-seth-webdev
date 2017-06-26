@@ -1,6 +1,24 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/profile">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
+
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
+</nav>
+
 <div class="container-fluid stc-contentpane">
     <div class="col-sm-4 vs-scrollable-left">
-        <div ng-include="'views/admin/templates/includes/admin-users-list.view.client.html'"></div>
+        <div ng-include="'./admin-users.view.client.html'"></div>
     </div>
 
     <div class="col-sm-8">
@@ -59,3 +77,17 @@
            ng-click="model.createUser(model.player)">Create User</a>
     </div>
 </div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/player/{{model.userId}}/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
+    </div>
+</nav>

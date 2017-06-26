@@ -2,8 +2,8 @@
     angular.module("DiceRole")
         .controller('homeController', homeController);
 
-    function homeController() { //currentUser) {
+    function homeController(currentPlayer) {
         var model = this;
-        //model.currentUser = currentUser;
+        model.currentPlayer = currentPlayer;
     }
 })();

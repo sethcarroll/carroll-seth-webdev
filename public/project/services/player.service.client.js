@@ -1,15 +1,15 @@
 (function () {
     angular
         .module('DiceRole')
-        .factory('userService', userService);
+        .factory('playerService', playerService);
 
-    function userService($http) {
+    function playerService($http) {
 
         var api = {
             createUser: createUser,
-            findUserByUsername: findUserByUsername,
-            findUserByCredentials: findUserByCredentials,
-            findUserById: findUserById,
+            findPlayerByUsername: findPlayerByUsername,
+            findPlayerByCredentials: findPlayerByCredentials,
+            findPlayerById: findPlayerById,
             updateUser: updateUser,
             deleteUser: deleteUser,
             login: login,
@@ -22,7 +22,7 @@
         return api;
 
         function login(username, password){
-            var url = "/api/player/login";
+            var url = "/api/project/login";
             var credentials = {
                 username: username,
                 password: password
@@ -35,7 +35,7 @@
         }
 
         function logout() {
-            var url = "/api/player/logout";
+            var url = "/api/project/logout";
             return $http.post(url)
                 .then(function (response) {
                     return response.data;
@@ -43,7 +43,7 @@
         }
 
         function register(user) {
-            var url = "/api/player/register";
+            var url = "/api/project/register";
             return $http.post(url, user)
                 .then(function (response) {
                     return response.data;
@@ -51,7 +51,7 @@
         }
 
         function unregister() {
-            var url ="/api/player/unregister";
+            var url ="/api/project/unregister";
             return $http.delete(url)
                 .then(function(response) {
                     return response.data;
@@ -60,7 +60,7 @@
         }
 
         function checkLoggedIn() {
-            var url = "/api/player/checkLoggedIn";
+            var url = "/api/project/checkLoggedIn";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -69,7 +69,7 @@
 
 
         function createUser (user) {
-            var url = "/api/player";
+            var url = "/api/project";
             return $http
                 .post(url, user)
                 .then(function (response) {
@@ -77,8 +77,8 @@
                 });
         }
 
-        function findUserByUsername (username) {
-            var url = "/api/player?username=" + username;
+        function findPlayerByUsername (username) {
+            var url = "/api/project?username=" + username;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -86,8 +86,8 @@
                 });
         }
 
-        function findUserByCredentials (username, password) {
-            var url = "/api/player?username=" + username + "&password=" + password;
+        function findPlayerByCredentials (username, password) {
+            var url = "/api/project?username=" + username + "&password=" + password;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -95,8 +95,8 @@
                 });
         }
 
-        function findUserById (userId) {
-            var url = "/api/player/" + userId;
+        function findPlayerById (userId) {
+            var url = "/api/project/" + userId;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -105,7 +105,7 @@
         }
 
         function updateUser (userId, user) {
-            var url = "/api/player/" + userId;
+            var url = "/api/project/" + userId;
             return $http
                 .put(url, user)
                 .then(function (response) {
@@ -114,7 +114,7 @@
         }
 
         function deleteUser (userId) {
-            var url = "/api/player/" + userId;
+            var url = "/api/project/" + userId;
             return $http
                 .delete(url)
                 .then(function (response) {

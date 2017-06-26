@@ -1,0 +1,80 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/profile">
+            <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
+        </a>
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
+
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
+</nav>
+
+
+<div class="container-fluid stc-contentpane">
+
+    <div class="btn-group btn-group-justified" role="group">
+        <a href="#/music">
+            <button type="button" class="btn btn-secondary col-xs-4">Music</button>
+        </a>
+        <a href="#/logbook">
+            <button type="button" class="btn btn-secondary col-xs-4">Logbook</button>
+        </a>
+        <a href="#/dice">
+            <button type="button" class="btn btn-secondary col-xs-4">Dice</button>
+        </a>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-4">
+            <h2>Find an Album</h2>
+            <div class="input-group">
+                <input ng-model="inputText" type="text" class="form-control">
+                <span class="input-group-btn">
+                <a ng-click="model.searchAlbums(inputText)" class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+            </span>
+            </div>
+
+            <ul ng-if="!model.album" class="list-group" style="margin-top: 20px">
+                <li class="list-group-item"
+                    ng-repeat="album in model.albums"
+                    ng-click="model.album = album">
+                    <img ng-src="{{model.getThumbnail(album)}}" alt="">
+                    {{album.name}} by {{album.artist}}
+                </li>
+            </ul>
+            <br>
+
+            <div class="center-block" ng-if="model.album">
+                <img ng-src="{{model.getAlbumArt(model.album)}}" alt="">
+                <h2>{{model.album.name}}</h2>
+                <h3>Artist: {{model.album.artist}}</h3>
+                <a ng-href="{{model.album.url}}" target="_blank"><h4>Access on LastFM</h4></a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/player/{{model.userId}}/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
+    </div>
+</nav>

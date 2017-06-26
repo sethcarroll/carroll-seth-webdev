@@ -3,8 +3,12 @@ var mongoose = require('mongoose');
 var characterSchema = mongoose.Schema({
     _campaign: [{type: mongoose.Schema.ObjectId, ref: "CampaignModel"}],
     name: String,
-    title: String,
-    description: String,
+    age: String,
+    height: String,
+    weight: String,
+    class: String,
+    level: String,
+    backstory: String,
     dateCreated: {type: Date, default: Date.now}
 }, {collection: "character"});
 

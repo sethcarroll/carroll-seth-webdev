@@ -6,7 +6,7 @@ var playerModel = mongoose.model('PlayerModel', playerSchema);
 playerModel.createPlayer = createPlayer;
 playerModel.findPlayerById = findPlayerById;
 playerModel.findAllPlayers = findAllPlayers;
-playerModel.findPlayerByPlayername = findPlayerByPlayername;
+playerModel.findPlayerByUsername = findPlayerByUsername;
 playerModel.findPlayerByCredentials = findPlayerByCredentials;
 playerModel.updatePlayer = updatePlayer;
 playerModel.deletePlayer = deletePlayer;
@@ -29,7 +29,7 @@ function findAllPlayers() {
     return playerModel.find();
 }
 
-function findPlayerByPlayername(username) {
+function findPlayerByUsername(username) {
     return playerModel.findOne({username: username});
 }
 
