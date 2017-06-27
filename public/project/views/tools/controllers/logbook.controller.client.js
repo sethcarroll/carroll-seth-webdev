@@ -34,7 +34,7 @@
         }
         function deleteMessage(messageId) {
             logbookService
-                .deleteMessage(message)
+                .deleteMessage(messageId)
                 .then(function (){
                     $location.url("#/logbook");
                 });

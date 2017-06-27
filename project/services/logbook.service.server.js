@@ -1,13 +1,13 @@
 var app = require('../../express');
-var characterModel = require('../model/logbook/logbook.model.server');
+var messageModel = require('../model/logbook/message.model.server');
 
-app.post('/api/logmessage', createMessage);
-app.get('/api/messages', findAllMessages);
-app.delete('/api/message/:messageId', deleteMessage);
+
+app.get('/api/project/messages', findAllMessages);
+app.post('/api/project/logmessage', createMessage);
+app.delete('/api/project/message/:messageId', deleteMessage);
 
 function createMessage(req, res) {
-    var character = req.body;
-    var campaignId = req.params.campaignId;
+    var message = req.body;
 
     messageModel
         .createMessage(message)
@@ -24,7 +24,6 @@ function findAllMessages(req, res) {
         .then(function(messages) {
             res.json(messages);
         }, function(error) {
-            res.sendStatus(404);
         })
 }
 

@@ -18,3 +18,4 @@ mongoose.connect(connectionString);
 require('./services/player.service.server');
 require('./services/campaign.service.server');
 require('./services/character.service.server');
+require('./services/logbook.service.server');

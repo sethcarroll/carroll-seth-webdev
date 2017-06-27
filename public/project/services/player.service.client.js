@@ -6,12 +6,12 @@
     function playerService($http) {
 
         var api = {
-            createUser: createUser,
+            createPlayer: createPlayer,
             findPlayerByUsername: findPlayerByUsername,
             findPlayerByCredentials: findPlayerByCredentials,
             findPlayerById: findPlayerById,
-            updateUser: updateUser,
-            deleteUser: deleteUser,
+            updatePlayer: updatePlayer,
+            deletePlayer: deletePlayer,
             login: login,
             logout: logout,
             checkLoggedIn: checkLoggedIn,
@@ -68,7 +68,7 @@
         }
 
 
-        function createUser (user) {
+        function createPlayer (user) {
             var url = "/api/project";
             return $http
                 .post(url, user)
@@ -104,7 +104,7 @@
                 });
         }
 
-        function updateUser (userId, user) {
+        function updatePlayer (userId, user) {
             var url = "/api/project/" + userId;
             return $http
                 .put(url, user)
@@ -113,12 +113,13 @@
                 })
         }
 
-        function deleteUser (userId) {
+        function deletePlayer (userId) {
             var url = "/api/project/" + userId;
             return $http
                 .delete(url)
                 .then(function (response) {
                     return response.data;
+
                 });
         }
     }

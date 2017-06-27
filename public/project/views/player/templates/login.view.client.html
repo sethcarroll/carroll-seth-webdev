@@ -10,7 +10,9 @@
 
 <div class="container-fluid stc-contentpane">
     <h1>Login</h1>
-    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+    <div class="alert alert-danger" ng-show="model.error">
+        {{ model.error }}
+    </div>
 
     <form novalidate class="simple-form">
         <label for="username">Username</label>

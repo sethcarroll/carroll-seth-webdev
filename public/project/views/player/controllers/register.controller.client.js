@@ -44,38 +44,38 @@
 
             playerService
                 .findPlayerByUsername(username)
-                .then(checkPlayer);
+                .then(function (user) {
+                    if (user) {
+                        model.error = "Sorry! The username you entered is not available!";
+                    }
+                }, checkPlayer);
 
             function checkPlayer(user) {
-                if (user) {
-                    model.error = "Sorry! The username you entered is not available!";
-                }
-                else {
-                    var user = {
-                        username: username,
-                        password: password,
-                        firstName: firstName,
-                        lastName: lastName,
-                        email: email,
-                        phone: phone,
-                        birthday: birthday,
-                        roles:['PLAYER']
-
+                // if (user) {
+                //     model.error = "Sorry! The username you entered is not available!";
+                // }
+                // else {
+                var user = {
+                    username: username,
+                    password: password,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phone: phone,
+                    birthday: birthday,
+                    roles:['PLAYER']
                 };
 
-                    if (adminregister === 'secretadmin') {
-                        user.roles.push('ADMIN');
-                    }
-
-                    playerService
-                        .register(user)
-                        .then(goToProfile);
-
-                    function goToProfile(user) {
-                        $location.url('/profile');
-                    }
-
+                if (adminregister === 'secretadmin') {
+                    user.roles.push('ADMIN');
                 }
+
+                playerService
+                    .register(user)
+                    .then(function goToProfile(user) {
+                        $location.url('/profile');
+                    });
+
             }
         }
     }

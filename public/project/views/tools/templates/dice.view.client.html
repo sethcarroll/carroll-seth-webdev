@@ -19,21 +19,28 @@
 
 <div class="container-fluid stc-contentpane">
 
-    <div class="btn-group btn-group-justified" role="group">
-        <a href="#/music">
-        <button type="button" class="btn btn-secondary col-xs-4">Music</button>
-        </a>
-        <a href="#/logbook">
-        <button type="button" class="btn btn-secondary col-xs-4">Logbook</button>
-        </a>
-        <a href="#/dice">
-        <button type="button" class="btn btn-secondary col-xs-4">Dice</button>
-        </a>
+    <div class="btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <a href="#/music"><span class="glyphicon glyphicon-cd"></span></a>
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <a href="#/logbook"><span class="glyphicon glyphicon-comment"></span></a>
+        </label>
+
+
+        <label class="btn btn-secondary">
+            <a href="#/dice">
+            <input type="radio" name="options" id="option3" autocomplete="off">
+            <a href="#/dice"><span class="fi-die-two"></span></a>
+            </a>
+        </label>
     </div>
 
     <div class="col-sm-12">
         <div class="col-sm-4">
-            <h2>Roll Dice</h2>
+            <h2 class="text-center">Roll Dice</h2>
 
             <form novalidate class="simple-form">
                 <label for="number">Number of Dice</label>
@@ -70,7 +77,7 @@
         </div>
 
         <div ng-if="model.dice" class="col-sm-8">
-            <h2>Results</h2>
+            <h2 class="text-center">Results</h2>
             <h4>Total: {{model.diceResult}}</h4>
             <h4>Breakdown: {{model.dice.details}} + {{model.diceModifier}}</h4>
         </div>

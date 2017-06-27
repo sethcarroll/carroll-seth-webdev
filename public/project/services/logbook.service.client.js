@@ -10,7 +10,7 @@
         this.findAllMessages = findAllMessages;
 
         function createMessage(message) {
-            var url = "/api/logmessage";
+            var url = "/api/project/logmessage";
             return $http
                 .post(url, message)
                 .then(function (response) {
@@ -18,8 +18,8 @@
                 });
         }
 
-        function findAllCharactersForCampaign () {
-            var url = "/api/messages";
+        function findAllMessages() {
+            var url = "/api/project/messages";
             return $http
                 .get(url)
                 .then(function (response) {
@@ -28,7 +28,7 @@
         }
 
         function deleteMessage(messageId) {
-            var url = "/api/message/" + messageId;
+            var url = "/api/project/message/" + messageId;
             return $http
                 .delete(url)
                 .then(function (response) {

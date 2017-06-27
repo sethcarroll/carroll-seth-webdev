@@ -24,7 +24,8 @@
         <input type="text"
                id="username"
                class="form-control"
-               ng-model="model.user.username"/>
+               ng-model="model.user.username"
+        readonly/>
 
         <label for="email">Email:</label>
         <input type="email"
@@ -53,7 +54,7 @@
                ng-model="model.user.lastName"/>
 
         <label for="birthday">Date of Birth:</label>
-        <input type="date"
+        <input type="text"
                id="birthday"
                class="form-control"
                ng-model="model.user.birthday">
@@ -66,18 +67,12 @@
                class="form-control"
                ng-model="model.user.password">
 
-        <label for="verifypassword">Verify Password:</label>
-        <input type="password"
-               id="verifypassword"
-               class="form-control"
-               ng-model="model.user.password">
-
         <br>
 
         <a class="btn btn-info btn-block"
-           ng-click="model.updateUser(model.userId, model.user)">Update</a>
+           ng-click="model.updatePlayer(model.userId, model.user)">Update</a>
         <a class="btn btn-danger btn-block"
-           ng-click="model.unregister()">Delete Account</a>
+           ng-click="model.deletePlayer()">Delete Account</a>
     </div>
 
 

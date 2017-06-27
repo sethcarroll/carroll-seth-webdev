@@ -19,21 +19,25 @@
 
 <div class="container-fluid stc-contentpane">
 
-    <div class="btn-group btn-group-justified" role="group">
-        <a href="#/music">
-            <button type="button" class="btn btn-secondary col-xs-4">Music</button>
-        </a>
-        <a href="#/logbook">
-            <button type="button" class="btn btn-secondary col-xs-4">Logbook</button>
-        </a>
-        <a href="#/dice">
-            <button type="button" class="btn btn-secondary col-xs-4">Dice</button>
-        </a>
+    <div class="btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <a href="#/music"><span class="glyphicon glyphicon-cd"></span></a>
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <a href="#/logbook"><span class="glyphicon glyphicon-comment"></span></a>
+        </label>
+
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off">
+            <a href="#/dice"><span class="fi-die-two"></span></a>
+        </label>
     </div>
 
     <div class="col-sm-12">
         <div class="col-sm-4">
-            <h2>Find an Album</h2>
+            <h2 class="text-center">Find an Album</h2>
             <div class="input-group">
                 <input ng-model="inputText" type="text" class="form-control">
                 <span class="input-group-btn">
@@ -53,7 +57,7 @@
             </ul>
             <br>
 
-            <div class="center-block" ng-if="model.album">
+            <div class="center-block text-center" ng-if="model.album">
                 <img ng-src="{{model.getAlbumArt(model.album)}}" alt="">
                 <h2>{{model.album.name}}</h2>
                 <h3>Artist: {{model.album.artist}}</h3>

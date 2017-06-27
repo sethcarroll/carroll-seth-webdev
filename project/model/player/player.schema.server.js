@@ -7,6 +7,7 @@ var playerSchema = mongoose.Schema({
     lastName: String,
     email: String,
     phone: String,
+    birthday: String,
     campaigns: [{type: mongoose.Schema.ObjectId, ref: "CampaignModel"}],
     facebook: {
         id: String,

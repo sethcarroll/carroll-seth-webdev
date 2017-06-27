@@ -32,12 +32,11 @@ app.use(passport.session());
 
 
 app.set('view engine', 'ejs');
-require ("./test/app.js")(app);
-require ("./assignment/app");
+// require ("./test/app.js")(app);
+// require ("./assignment/app");
 require ("./project/app");
-require('./public/lecture/ejs/hello');
-require('./public/lecture/ejs/crud/');
-
+// require('./public/lecture/ejs/hello');
+// require('./public/lecture/ejs/crud/');
 var port = process.env.PORT || 3000;
 
 app.listen(port);

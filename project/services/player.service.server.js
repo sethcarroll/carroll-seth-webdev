@@ -38,21 +38,12 @@ function setFacebookConfig() {
 
 
 
-
+app.get ('/api/project/checkLoggedIn', checkLoggedIn);
 app.get    ('/api/project/:userId', findPlayerById);
 app.get    ('/api/project', findPlayerByUsername);
 app.get    ('/api/project', findPlayerByCredentials);
-app.post   ('/api/project', createPlayer);
-app.put    ('/api/project/:userId', updatePlayer);
-app.delete ('/api/project/:userId', deletePlayer);
-
-
-
-app.post  ('/api/project/login', passport.authenticate('local'), login);
-app.post ('/api/project/logout', logout);
-app.post   ('/api/project/register', register);
-app.post   ('/api/project/unregister', unregister);
-app.get ('/api/project/checkLoggedIn', checkLoggedIn);
+app.get('/api/admin/players', findAllPlayers);
+app.get('/api/admin/player/:userId', findPlayerById);
 
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['public_profile', 'email'] }));
 app.get('/auth/facebook/callback',
@@ -61,10 +52,18 @@ app.get('/auth/facebook/callback',
         failureRedirect: '/project/#/login'
     }));
 
-app.get('/api/admin/players', findAllPlayers);
-app.get('/api/admin/player/:userId', findPlayerById);
+
+app.post   ('/api/project', createPlayer);
+app.post  ('/api/project/login', passport.authenticate('local'), login);
+app.post ('/api/project/logout', logout);
+app.post   ('/api/project/register', register);
 app.post('/api//admin/player', createPlayer);
+
+app.delete ('/api/project/:userId', deletePlayer);
 app.delete('/api/admin/player/:userId', deletePlayer);
+app.delete   ('/api/project/unregister', unregister);
+
+app.put    ('/api/project/:userId', updatePlayer);
 app.put('/api/admin/player/:userId', updatePlayer);
 
 function createPlayer(req, res) {
@@ -154,6 +153,15 @@ function deletePlayer(req, res) {
             res.sendStatus(404);
         });
 
+}
+
+function unregister(req, res) {
+    playerModel
+        .deletePlayer(req.user._id)
+        .then(function(response) {
+            req.logout();
+            res.sendStatus(200);
+        })
 }
 
 function facebookStrategy(token, refreshToken, profile, done) {

@@ -20,12 +20,12 @@
                     $location.url("/profile");
                 }
                 else {
-                    model.message = "Uh-oh. Either your username or password were incorrect!";
+                    model.error = "Uh-oh. Either your username or password were incorrect!";
                 }
             }
 
             function handleError() {
-                model.message = "Uh-oh. Either your username or password were incorrect!";
+                model.error = "Uh-oh. Either your username or password were incorrect!";
             }
         }
     }

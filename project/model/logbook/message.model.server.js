@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var messageSchema = require('./message.schema.server');
+var messageModel = mongoose.model('MessageModel', messageSchema);
 
 messageModel.createMessage = createMessage;
 messageModel.findAllMessages = findAllMessages;
@@ -12,10 +13,10 @@ function createMessage(message) {
 }
 
 function findAllMessages() {
-    return playerModel.find();
+    return messageModel.find();
 }
 
-function deleteCharacter(messageId) {
+function deleteMessage(messageId) {
     return messageModel
         .remove({_id: messageId});
 }

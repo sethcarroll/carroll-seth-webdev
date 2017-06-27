@@ -18,10 +18,26 @@
 
 <div class="container-fluid stc-contentpane">
 
+    <div class="btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option1" autocomplete="off">
+            <a href="#/music"><span class="glyphicon glyphicon-cd"></span></a>
+        </label>
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" autocomplete="off">
+            <a href="#/logbook"><span class="glyphicon glyphicon-comment"></span></a>
+        </label>
+
+        <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" autocomplete="off">
+            <a href="#/dice"><span class="fi-die-two"></span></a>
+        </label>
+    </div>
+
     <li class="list-group-item" ng-repeat="message in model.messages">
         <div class="row">
             <div class="col-xs-9 pull-left">
-                <a href="">{{mesaage._user.name}} </a>
+                <a href="">{{message._user.name}} </a>
             </div>
             <div class="col-xs-3">
                 <a ng-if="campaign._user._id == model.userId" ng-click="model.deleteMessage(message._id)">
@@ -38,19 +54,23 @@
 </div>
 
 <nav class="navbar navbar-fixed-bottom bg-info">
+
     <div class="container-fluid text-center">
-        <div class="col-xs-11">
-            <input type="text"
-                   id="message"
-                   placeholder="message"
-                   class="form-control"
-                   ng-model="message"
-                   required/>
-        </div>
-        <div class="col-xs-1">
-            <a ng-click="model.createMessage('message')">
-                <span class="navbar-text pull-right glyphicon glyphicon-comment"></span>
+
+            <form novalidate class="simple-form">
+                <div class="col-xs-10 pull-left navbar-text">
+                    <input type="text"
+                           id="message"
+                           placeholder="Enter a log entry:"
+                           class="form-control"
+                           ng-model="message"
+                           required/>
+                </div>
+
+
+            <a class="navbar-text" ng-click="model.createMessage('message')">
+                <span class="col-xs-1 pull-right glyphicon glyphicon-send navbar-text"></span>
             </a>
-        </div>
+            </form>
     </div>
 </nav>

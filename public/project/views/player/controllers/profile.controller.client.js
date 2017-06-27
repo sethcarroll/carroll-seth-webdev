@@ -12,6 +12,7 @@
 
 
         model.updatePlayer = updatePlayer;
+        model.deletePlayer = deletePlayer;
         model.unregister = unregister;
         model.logout = logout;
 
@@ -23,9 +24,9 @@
                 });
         }
 
-        function updatePlayer (user) {
+        function updatePlayer (id, user) {
             playerService
-                .updatePlayer(user._id, user)
+                .updatePlayer(id, user)
                 .then(function () {
                     model.message = "Updated successfully!";
                 });
@@ -34,6 +35,14 @@
         function unregister() {
             playerService
                 .unregister()
+                .then(function() {
+                    $location.url('/login');
+                });
+        }
+
+        function deletePlayer() {
+            playerService
+                .deletePlayer(model.userId)
                 .then(function() {
                     $location.url('/login');
                 });

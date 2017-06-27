@@ -46,12 +46,15 @@ function findPlayerByCredentials(username, password) {
 }
 
 function updatePlayer(userId, newPlayer) {
+    newPlayer.password = bcrypt.hashSync(newPlayer.password);
     return playerModel.update({_id: userId}, {
         $set: {
             firstName: newPlayer.firstName,
             lastName: newPlayer.lastName,
             email: newPlayer.email,
-            phone: newPlayer.phone
+            phone: newPlayer.phone,
+            birthday: newPlayer.birthday,
+            password: newPlayer.password
         }
     })
 }
