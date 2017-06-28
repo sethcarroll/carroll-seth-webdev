@@ -11,7 +11,8 @@ characterModel.deleteCharacter = deleteCharacter;
 
 module.exports = characterModel;
 
-function createCharacter(campaignId, character) {
+function createCharacter(userId, campaignId, character) {
+    character._user = userId;
     character._campaign = campaignId;
     return characterModel.create(character)
         .then(function (character) {

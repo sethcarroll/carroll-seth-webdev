@@ -3,7 +3,7 @@
         .module('DiceRole')
         .controller('campaignListController', campaignListController);
 
-    function campaignListController(currentPlayer, $routeParams, campaignService, $location) {
+    function campaignListController(currentPlayer, $routeParams, campaignService, $location, $route) {
 
         var model = this;
         model.currentPlayer = currentPlayer;
@@ -28,7 +28,7 @@
             campaignService
                 .deleteCampaign(campaignId)
                 .then(function () {
-                    $location.url('/campaign');
+                    $route.reload();
                 });
         }
     }

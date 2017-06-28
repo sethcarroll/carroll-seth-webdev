@@ -24,7 +24,7 @@
         init();
 
         function createCampaign (campaign) {
-            campaign.developerId = model.userId;
+            campaign.userId = model.userId;
             campaign.world = 'world';
             campaignService
                 .createCampaign(campaign)

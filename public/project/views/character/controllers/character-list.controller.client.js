@@ -3,7 +3,7 @@
         .module('DiceRole')
         .controller('characterListController', characterListController);
 
-    function characterListController(currentPlayer, $routeParams, characterService) {
+    function characterListController(currentPlayer, $routeParams, characterService, $route) {
         var model = this;
 
         model.currentPlayer = currentPlayer;
@@ -27,7 +27,7 @@
             characterService
                 .deleteCharacter(characterId)
                 .then(function (){
-                    $location.url('/campaign/'+model.campaignId+'/character');
+                    $route.reload();
                 });
         }
 

@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var characterSchema = mongoose.Schema({
     _campaign: [{type: mongoose.Schema.ObjectId, ref: "CampaignModel"}],
+    _user: [{type: mongoose.Schema.ObjectId, ref: "PlayerModel"}],
     name: String,
     age: String,
     height: String,

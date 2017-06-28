@@ -12,7 +12,7 @@
         this.deleteCharacter = deleteCharacter;
 
         function createCharacter(character) {
-            var url = "/api/campaign/" + character.campaignId + "/character";
+            var url = "/api/campaign/" + character.campaignId + "/" + character.userId+ "/character";
             return $http
                 .post(url, character)
                 .then(function (response) {

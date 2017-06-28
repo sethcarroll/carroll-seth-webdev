@@ -20,7 +20,7 @@
         init();
 
         function createWebsite (website) {
-            website.developerId = model.userId;
+            website.userId = model.userId;
             websiteService
                 .createWebsite(website)
                 .then(function () {

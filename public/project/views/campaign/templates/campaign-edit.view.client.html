@@ -40,10 +40,10 @@
                         <a href="#/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
                     </div>
                     <div class="col-xs-3">
-                        <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                        <a ng-if="(campaign._user.toString() == model.userId) || (model.isAdmin)"
                            ng-click="model.deleteCampaign(campaign._id)">
                             <span class="glyphicon glyphicon-remove pull-right"></span></a>
-                        <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                        <a ng-if="(campaign._user.toString() == model.userId) || (model.isAdmin)"
                            href="#/campaign/{{campaign._id}}">
                             <span class="glyphicon glyphicon-pencil pull-right"></span></a>
                     </div>

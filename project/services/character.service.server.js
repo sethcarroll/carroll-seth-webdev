@@ -1,7 +1,7 @@
 var app = require('../../express');
 var characterModel = require('../model/character/character.model.server');
 
-app.post('/api/campaign/:campaignId/character', createCharacter);
+app.post('/api/campaign/:campaignId/:userId/character', createCharacter);
 app.get('/api/campaign/:campaignId/character', findAllCharactersForCampaign);
 app.get('/api/character/:characterId', findCharacterById);
 app.put('/api/character/:characterId', updateCharacter);
@@ -10,9 +10,10 @@ app.delete('/api/character/:characterId', deleteCharacter);
 function createCharacter(req, res) {
     var character = req.body;
     var campaignId = req.params.campaignId;
+    var userId = req.params.userId;
 
     characterModel
-        .createCharacter(campaignId, character)
+        .createCharacter(userId, campaignId, character)
         .then(function (character) {
             res.json(character);
         }, function (err) {

@@ -12,7 +12,7 @@
         this.deleteWebsite = deleteWebsite;
 
         function createWebsite (website) {
-            var url = "/api/user/" + website.developerId + "/website";
+            var url = "/api/user/" + website.userId + "/website";
             return $http
                 .post(url, website)
                 .then(function (response) {

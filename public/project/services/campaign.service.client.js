@@ -13,7 +13,7 @@
         this.deleteCampaign = deleteCampaign;
 
         function createCampaign (campaign) {
-            var url = "/api/player/" + campaign.developerId + "/campaign";
+            var url = "/api/player/" + campaign.userId + "/campaign";
             return $http
                 .post(url, campaign)
                 .then(function (response) {

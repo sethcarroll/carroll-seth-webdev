@@ -26,6 +26,7 @@
 
         function createCharacter (character) {
             character.campaignId = model.campaignId;
+            character.userId = model.userId;
             characterService
                 .createCharacter(character)
                 .then(function () {
