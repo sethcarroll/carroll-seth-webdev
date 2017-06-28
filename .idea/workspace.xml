@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58570a0e-0353-4c11-be50-ea77f1f775f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/model/character/character.model.server.js" afterPath="$PROJECT_DIR$/project/model/character/character.model.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/model/character/character.schema.server.js" afterPath="$PROJECT_DIR$/project/model/character/character.schema.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/services/character.service.server.js" afterPath="$PROJECT_DIR$/project/services/character.service.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/services/website.service.client.js" afterPath="$PROJECT_DIR$/public/assignment/services/website.service.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment/views/website/controllers/website-new.controller.client.js" afterPath="$PROJECT_DIR$/public/assignment/views/website/controllers/website-new.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/services/campaign.service.client.js" afterPath="$PROJECT_DIR$/public/project/services/campaign.service.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/services/character.service.client.js" afterPath="$PROJECT_DIR$/public/project/services/character.service.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-list.controller.client.js" afterPath="$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-list.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-new.controller.client.js" afterPath="$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-new.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-edit.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-edit.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-list.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-new.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-new.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/controllers/character-list.controller.client.js" afterPath="$PROJECT_DIR$/public/project/views/character/controllers/character-list.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/controllers/character-new.controller.client.js" afterPath="$PROJECT_DIR$/public/project/views/character/controllers/character-new.controller.client.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project/views/character/templates/character.view.client.html" afterPath="$PROJECT_DIR$/public/project/views/character/templates/character.view.client.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -80,8 +64,8 @@
       <file leaf-file-name="character-edit.view.client.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="44" />
+            <state relative-caret-position="378">
+              <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -90,8 +74,8 @@
       <file leaf-file-name="character-list.view.client.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+            <state relative-caret-position="609">
+              <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -107,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="campaign-list.controller.client.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="campaign-list.controller.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-list.controller.client.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -127,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="character-new.view.client.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="character-new.view.client.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="45" column="44" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+            <state relative-caret-position="423">
+              <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -149,7 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>currentplayeridst</find>
       <find>$</find>
       <find>$loca</find>
       <find>$locatio</find>
@@ -179,6 +162,7 @@
       <find>charac.userId</find>
       <find>character.userId</find>
       <find>campaignId</find>
+      <find>level</find>
     </findStrings>
     <replaceStrings>
       <replace>DiceRole</replace>
@@ -258,11 +242,11 @@
         <option value="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-list.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/campaign/templates/campaign-new.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/character/templates/character.view.client.html" />
-        <option value="$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html" />
-        <option value="$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html" />
         <option value="$PROJECT_DIR$/public/project/views/character/controllers/character-list.controller.client.js" />
         <option value="$PROJECT_DIR$/public/project/views/campaign/controllers/campaign-list.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html" />
+        <option value="$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html" />
       </list>
     </option>
   </component>
@@ -991,12 +975,12 @@
       <workItem from="1498365872373" duration="42254000" />
       <workItem from="1498473969582" duration="8088000" />
       <workItem from="1498590534493" duration="9671000" />
-      <workItem from="1498601698682" duration="26666000" />
+      <workItem from="1498601698682" duration="26998000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214761000" />
+    <option name="totallyTimeSpent" value="215093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
@@ -1421,38 +1405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="45" column="44" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/project/views/character/controllers/character-new.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project/views/character/controllers/character-list.controller.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1465,6 +1417,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/character/controllers/character-new.controller.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-edit.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-list.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/project/views/character/templates/character-new.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
           <folding />
         </state>
       </provider>
