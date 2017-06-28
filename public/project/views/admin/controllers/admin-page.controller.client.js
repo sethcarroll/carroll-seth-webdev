@@ -1,13 +1,13 @@
 (function() {
     angular
         .module('DiceRole')
-        .controller('adminPlayersController', adminPlayersController);
+        .controller('adminPageController', adminPageController);
 
-    function adminPlayersController(currentPlayer, adminService, logoutService) {
+    function adminPageController(currentPlayer, adminService, playerService, logbookService, $location) {
         var model = this;
 
         function init() {
-            model.logout = logoutService.logout;
+            model.logout = logout;
             model.currentPlayer = currentPlayer;
 
             adminService
@@ -17,6 +17,7 @@
                 });
 
             model.deletePlayer = deletePlayer;
+            model.deleteAllMessages = deleteAllMessages;
         }
         init();
         function deletePlayer(user) {
@@ -28,7 +29,22 @@
                         model.players.splice(index, 1);
                     });
             }
+        }
 
+        function deleteAllMessages() {
+            var key = 'key';
+            logbookService
+                .deleteAllMessages(key)
+                .then(function (){
+                });
+        }
+
+        function logout() {
+            playerService
+                .logout()
+                .then(function () {
+                    $location.url('/login');
+                });
         }
     }
 })();

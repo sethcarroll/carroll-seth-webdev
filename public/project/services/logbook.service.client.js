@@ -5,9 +5,14 @@
 
     function logbookService ($http) {
 
-        this.createMessage = createMessage;
-        this.deleteMessage = deleteMessage;
-        this.findAllMessages = findAllMessages;
+        var api = {
+            createMessage: createMessage,
+            deleteMessage: deleteMessage,
+            deleteAllMessages: deleteAllMessages,
+            findAllMessages: findAllMessages
+        };
+
+        return api;
 
         function createMessage(message) {
             var url = "/api/project/logmessage";
@@ -18,8 +23,8 @@
                 });
         }
 
-        function findAllMessages() {
-            var url = "/api/project/messages";
+        function findAllMessages(key) {
+            var url = '/api/project/messages/' + key;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -29,6 +34,15 @@
 
         function deleteMessage(messageId) {
             var url = "/api/project/message/" + messageId;
+            return $http
+                .delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function deleteAllMessages(key) {
+            var url = "/api/project/messages/" + key;
             return $http
                 .delete(url)
                 .then(function (response) {

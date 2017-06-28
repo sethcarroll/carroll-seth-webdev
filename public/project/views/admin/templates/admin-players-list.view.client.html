@@ -1,5 +1,9 @@
 <div class="container-fluid stc-contentpane">
-    <a href="#/admin/user/new" class="btn btn-info">Create New User</a>
+
+    <div class="btn-group-justified">
+        <a href="#/admin/player/new" class="btn btn-success">Create New User</a>
+        <a ng-click="model.deleteAllMessages()" class="btn btn-danger">Clear the Logbook</a>
+    </div>
     <div>
         <ul class="list-group">
             <li class="vs-active list-group-item">All Users</li>
@@ -8,8 +12,8 @@
 
                 <span class="glyphicon glyphicon-remove pull-right"
                       ng-click="model.deletePlayer(player)"></span>
-                <a href="#/admin/player/{{user._id}}">
-                    <span class="glyphicon glyphicon-pencil pull-right"></span>
+                <a href="#/admin/player/{{player._id}}">
+                    <span class="stc-glyphcolor glyphicon glyphicon-pencil pull-right"></span>
                 </a>
             </li>
         </ul>

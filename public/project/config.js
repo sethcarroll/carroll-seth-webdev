@@ -111,16 +111,16 @@
                 }
             })
             .when('/admin', {
-                templateUrl: 'views/admin/templates/admin-users.view.client.html',
-                controller: 'adminPlayersController',
+                templateUrl: 'views/admin/templates/admin-page.view.client.html',
+                controller: 'adminPageController',
                 controllerAs: 'model',
                 resolve: {
-                    curerntPlayer: checkAdmin
+                    currentPlayer: checkAdmin
                 }
             })
             .when('/admin/players', {
-                templateUrl: 'views/admin/templates/admin-users.view.client.html',
-                controller: 'adminPlayersController',
+                templateUrl: 'views/admin/templates/admin-page.view.client.html',
+                controller: 'adminPageController',
                 controllerAs: 'model',
                 resolve: {
                     currentPlayer: checkAdmin

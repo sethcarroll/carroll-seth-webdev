@@ -1,8 +1,8 @@
 var app = require('./express');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session      = require('express-session');
-var passport      = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
 
 
 app.use(bodyParser.json());
@@ -30,13 +30,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+require('./project/app');
 
-app.set('view engine', 'ejs');
-// require ("./test/app.js")(app);
-// require ("./assignment/app");
-require ("./project/app");
-// require('./public/lecture/ejs/hello');
-// require('./public/lecture/ejs/crud/');
-var port = process.env.PORT || 3000;
-
-app.listen(port);
+app.listen(process.env.PORT || 3000);

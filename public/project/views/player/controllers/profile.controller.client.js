@@ -9,11 +9,12 @@
 
         model.user = currentPlayer;
         model.userId = currentPlayer['_id'];
+        model.currentPlayerRoles = currentPlayer['roles'];
+        model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);
 
 
         model.updatePlayer = updatePlayer;
         model.deletePlayer = deletePlayer;
-        model.unregister = unregister;
         model.logout = logout;
 
         function logout() {
@@ -28,24 +29,18 @@
             playerService
                 .updatePlayer(id, user)
                 .then(function () {
-                    model.message = "Updated successfully!";
-                });
-        }
-
-        function unregister() {
-            playerService
-                .unregister()
-                .then(function() {
-                    $location.url('/login');
+                    $location.url('/admin/players');
                 });
         }
 
         function deletePlayer() {
+            if (confirm("Are you sure you want to delete your account?")) {
             playerService
                 .deletePlayer(model.userId)
                 .then(function() {
                     $location.url('/login');
                 });
+            }
         }
     }
 })();

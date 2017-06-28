@@ -18,7 +18,7 @@
 
 <div class="container-fluid stc-contentpane">
 
-    <div class="btn-group-justified" data-toggle="buttons">
+    <div class="btn-group-justified fixed" data-toggle="buttons">
         <label class="btn btn-secondary">
             <input type="radio" name="options" id="option1" autocomplete="off">
             <a href="#/music"><span class="glyphicon glyphicon-cd"></span></a>
@@ -34,22 +34,28 @@
         </label>
     </div>
 
-    <li class="list-group-item" ng-repeat="message in model.messages">
-        <div class="row">
-            <div class="col-xs-9 pull-left">
-                <a href="">{{message._user.name}} </a>
+    <div class="container-fluid  stc-messagepane stc-h-scroll">
+
+        <li class="list-group-item" ng-repeat="message in model.messages">
+            <div class="stc-message">
+                <div class="row stc-message-box">
+                    <div class="col-xs-9 pull-left">
+                        <p><b> {{message.name}}</b></p>
+                        <p>
+                            {{message.text}}
+                        </p>
+                    </div>
+                    <div class="col-xs-3">
+                        <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                           ng-click="model.deleteMessage(message._id)">
+                            <span class="glyphicon glyphicon-remove pull-right"></span></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-3">
-                <a ng-if="campaign._user._id == model.userId" ng-click="model.deleteMessage(message._id)">
-                    <span class="glyphicon glyphicon-remove pull-right"></span></a>
-            </div>
-        </div>
-        <div class="row">
-            <p>
-                {{message.text}}
-            </p>
-        </div>
-    </li>
+            <br>
+        </li>
+
+    </div>
 
 </div>
 
@@ -57,20 +63,20 @@
 
     <div class="container-fluid text-center">
 
-            <form novalidate class="simple-form">
-                <div class="col-xs-10 pull-left navbar-text">
-                    <input type="text"
-                           id="message"
-                           placeholder="Enter a log entry:"
-                           class="form-control"
-                           ng-model="message"
-                           required/>
-                </div>
+        <form novalidate class="simple-form">
+            <div class="col-xs-10 pull-left navbar-text">
+                <input type="text"
+                       id="message"
+                       placeholder="Enter a log entry:"
+                       class="form-control"
+                       ng-model="message.text"
+                       required/>
+            </div>
 
 
-            <a class="navbar-text" ng-click="model.createMessage('message')">
+            <a class="navbar-text" ng-click="model.createMessage(message)">
                 <span class="col-xs-1 pull-right glyphicon glyphicon-send navbar-text"></span>
             </a>
-            </form>
+        </form>
     </div>
 </nav>

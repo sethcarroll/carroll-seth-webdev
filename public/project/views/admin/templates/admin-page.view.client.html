@@ -1,0 +1,35 @@
+<nav class="navbar navbar-fixed-top bg-info">
+    <div class="container-fluid text-center">
+
+        <a ng-click="model.logout()">
+            <span class="navbar-text pull-left glyphicon glyphicon-log-out"></span>
+        </a>
+
+        <a href="#/">
+            <h3 class="navbar-text col-xs-10">DiceRole</h3>
+        </a>
+
+        <a href="#/profile">
+            <span class="navbar-text pull-right glyphicon glyphicon-user"></span>
+        </a>
+
+    </div>
+</nav>
+
+
+<div ng-include="'views/admin/templates/admin-players-list.view.client.html'"></div>
+
+
+<nav class="navbar navbar-fixed-bottom bg-info">
+    <div class="container-fluid text-center">
+
+        <a href="#/campaign">
+            <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
+        </a>
+
+        <a href="#/logbook">
+            <span class="navbar-text pull-right glyphicon glyphicon-th-large"></span>
+        </a>
+
+    </div>
+</nav>

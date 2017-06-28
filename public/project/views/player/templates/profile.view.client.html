@@ -73,6 +73,11 @@
            ng-click="model.updatePlayer(model.userId, model.user)">Update</a>
         <a class="btn btn-danger btn-block"
            ng-click="model.deletePlayer()">Delete Account</a>
+
+        <br>
+
+        <a ng-if="model.isAdmin" class="btn btn-block btn-primary"
+           href="#/admin">Access Admin Page</a>
     </div>
 
 

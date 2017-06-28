@@ -28,6 +28,19 @@ body {
     color: #262626;
     text-decoration: none;}
 
+.stc-glyphcolor a:link {
+    color: #262626;
+    text-decoration: none;}
+.stc-glyphcolor a:visited {
+    color: #262626;
+    text-decoration: none;}
+.stc-glyphcolor a:hover {
+    color: #262626;
+    text-decoration: none;}
+.stc-glyphcolor a:active {
+    color: #262626;
+    text-decoration: none;}
+
 
 .list-group-item {
     border: none;
@@ -122,4 +135,25 @@ body {
 .stc-contentpane {
     margin-top: 70px;
     margin-bottom: 60px;
+}
+
+.stc-h-scroll {
+    height: 95vh;
+    width: 100vw;
+    position: fixed;
+    overflow-y: scroll;
+}
+
+.stc-messagepane {
+    margin-bottom: 400px;
+}
+
+.stc-message {
+    border-style: solid;
+    border-color: rgba(130, 130, 130, 0.3);
+    border-radius: 1em;
+}
+
+.stc-message-box {
+    margin: 1em;
 }

@@ -54,7 +54,8 @@ function updatePlayer(userId, newPlayer) {
             email: newPlayer.email,
             phone: newPlayer.phone,
             birthday: newPlayer.birthday,
-            password: newPlayer.password
+            password: newPlayer.password,
+            roles: newPlayer.roles
         }
     })
 }
