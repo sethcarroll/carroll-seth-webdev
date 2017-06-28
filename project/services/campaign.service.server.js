@@ -3,9 +3,9 @@ var campaignModel = require('../model/campaign/campaign.model.server');
 
 app.post('/api/player/:userId/campaign', createCampaign);
 app.get('/api/player/:userId/campaign', findAllCampaignsForPlayer);
-app.get('/api/campaign', findAllCampaigns);
-app.get('/api/campaign/:campaignId', findCampaignById);
-app.put('/api/campaign/:campaignId', updateCampaign);
+app.get('/api/campaign/:world', findAllCampaigns);
+app.get('/api/campaign/find/:campaignId', findCampaignById);
+app.put('/api/campaign/update/:campaignId', updateCampaign);
 app.delete('/api/campaign/:campaignId', deleteCampaign);
 
 function createCampaign(req, res) {
@@ -33,7 +33,7 @@ function findAllCampaignsForPlayer(req, res) {
 }
 
 function findAllCampaigns(req, res) {
-    var world = 'world';
+    var world = req.params.world;
     campaignModel
         .findAllCampaigns(world)
         .then(function (campaigns) {

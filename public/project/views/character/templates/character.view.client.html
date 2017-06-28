@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/campaign">
+        <a href="#/campaign/{{model.campaignId}}/character">
             <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
         </a>
 
@@ -23,10 +23,10 @@
             <li class="list-group-item active">
                 <div class="row">
                     <div class="col-xs-9">
-                        Campaign Name
+                        Character Name
                     </div>
                     <div class="col-xs-3">
-                        <a href="#/campaign/new">
+                        <a href="#/campaign/{{model.campaignId}}/character/new">
                             <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
                         </a>
                     </div>
@@ -34,17 +34,17 @@
             </li>
 
 
-            <li class="list-group-item" ng-repeat="campaign in model.campaigns">
+            <li class="list-group-item" ng-repeat="character in model.characters">
                 <div class="row">
                     <div class="col-xs-9">
-                        <a href="#/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
+                        <a href="#/campaign/{{model.campaignId}}/character/{{character._id}}/view">{{character.name}}</a>
                     </div>
                     <div class="col-xs-3">
                         <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
-                            ng-click="model.deleteCampaign(campaign._id)">
+                           ng-click="model.deleteCharacter(character._id)">
                             <span class="glyphicon glyphicon-remove pull-right"></span></a>
                         <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
-                           href="#/campaign/{{campaign._id}}">
+                           href="#/campaign/{{model.campaignId}}/character/{{character._id}}">
                             <span class="glyphicon glyphicon-pencil pull-right"></span></a>
                     </div>
                 </div>
@@ -52,30 +52,21 @@
         </ul>
     </div>
 
-    <div class="col-sm-8 col-xs-12">
-        <form novalidate class="simple-form">
-            <label for="name">Name</label>
-            <input type="text"
-                   id="name"
-                   placeholder="Name"
-                   class="form-control"
-                   ng-model="campaign.name"
-                   required/>
 
-            <label for="description">Description</label>
-            <textarea id="description"
-                      placeholder="Description"
-                      cols="30"
-                      rows="3"
-                      class="form-control"
-                      ng-model="campaign.description"></textarea>
 
-            <input type="submit"
-                   class="btn btn-block btn-info"
-                   ng-click="model.createCampaign(campaign)"
-                   value="Create Campaign">
-        </form>
-    </div>
+        <div class=" col-sm-8 col-xs-12">
+
+            <h1 class="text-center">{{model.character.name}}</h1>
+            <img class="center-block hidden-xs" src="/project/views/resources/d20.jpg" height="317" width="320"/>
+            <img class="center-block visible-xs" src="/project/views/resources/d20.jpg" height="150" width="160"/>
+            <h2><b>Class:</b> {{model.character.class}}</h2>
+            <h2><b>Level:</b> {{model.character.level}}</h2>
+            <h2><b>Race:</b> {{model.character.race}}</h2>
+            <h2><b>Age:</b> {{model.character.age}}</h2>
+            <h2><b>Height:</b> {{model.character.height}}</h2>
+            <h2><b>Weight:</b> {{model.character.weight}}</h2>
+            <h2><b>Backstory:</b> <p>{{model.character.backstory}}</p></h2>
+        </div>
 </div>
 
 <nav class="navbar navbar-fixed-bottom bg-info">

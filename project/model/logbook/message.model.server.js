@@ -17,7 +17,6 @@ function createMessage(message) {
 function findAllMessages(key) {
     return messageModel
         .find({key: key})
-        //.populate('key')
         .exec();
 }
 

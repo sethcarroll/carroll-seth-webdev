@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign">
+        <a href="#/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
         </a>
 
@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<div class="col-sm-4 hidden-xs container-fluid stc-contentpane">
+<div class="container-fluid stc-contentpane">
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
@@ -24,23 +24,26 @@
                     Character Name
                 </div>
                 <div class="col-xs-3">
-                    <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character/new">
+                    <a href="#/campaign/{{model.campaignId}}/character/new">
                         <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
                     </a>
                 </div>
             </div>
         </li>
 
+
         <li class="list-group-item" ng-repeat="character in model.characters">
             <div class="row">
                 <div class="col-xs-9">
-                    <a href="">{{character.name}} </a>
+                    <a href="#/campaign/{{model.campaignId}}/character/{{character._id}}/view">{{character.name}}</a>
                 </div>
                 <div class="col-xs-3">
-                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}/character/{{character._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right"></span></a>
-                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}/character/{{character._id}}}">
-                        <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                       ng-click="model.deleteCharacter(character._id)">
+                        <span class="glyphicon glyphicon-remove pull-right"></span></a>
+                    <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                       href="#/campaign/{{model.campaignId}}/character/{{character._id}}">
+                        <span class="glyphicon glyphicon-pencil pull-right"></span></a>
                 </div>
             </div>
         </li>
@@ -50,7 +53,7 @@
 <nav class="navbar navbar-fixed-bottom bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign">
+        <a href="#/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
         </a>
 

@@ -30,8 +30,8 @@
                 });
         }
 
-        function findAllCampaigns () {
-            var url = "/api/campaign";
+        function findAllCampaigns(world) {
+            var url = "/api/campaign/" + world;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -40,7 +40,7 @@
         }
 
         function findCampaignById (campaignId) {
-            var url = "/api/campaign/" + campaignId;
+            var url = "/api/campaign/find/" + campaignId;
             return $http
                 .get(url)
                 .then(function (response) {
@@ -49,7 +49,7 @@
         }
 
         function updateCampaign (campaignId, campaign) {
-            var url = "/api/campaign/" + campaignId;
+            var url = "/api/campaign/update/" + campaignId;
             return $http
                 .put(url, campaign)
                 .then(function (response) {

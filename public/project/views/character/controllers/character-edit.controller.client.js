@@ -11,6 +11,9 @@
         model.userId = currentPlayer['_id'];
         model.campaignId = $routeParams['campaignId'];
         model.characterId = $routeParams['characterId'];
+        model.currentPlayerRoles = currentPlayer['roles'];
+        model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);
+
         model.updateCharacter = updateCharacter;
         model.deleteCharacter = deleteCharacter;
 
@@ -36,16 +39,15 @@
             characterService
                 .updateCharacter(characterId, character)
                 .then(function (){
-                    $location.url('/player/'+model.userId+'/campaign/'+model.campaignId+'/character');
+                    $location.url('/campaign/'+model.campaignId+'/character');
                 });
-
         }
 
         function deleteCharacter(characterId) {
             characterService
                 .deleteCharacter(characterId)
                 .then(function (){
-                    $location.url('/player/'+model.userId+'/campaign/'+model.campaignId+'/character');
+                    $location.url('/campaign/'+model.campaignId+'/character');
                 });
         }
     }

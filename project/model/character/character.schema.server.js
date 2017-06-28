@@ -7,6 +7,7 @@ var characterSchema = mongoose.Schema({
     height: String,
     weight: String,
     class: String,
+    race: String,
     level: String,
     backstory: String,
     dateCreated: {type: Date, default: Date.now}

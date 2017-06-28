@@ -7,7 +7,6 @@
         var model = this;
 
         model.currentPlayer = currentPlayer;
-        model.currentPlayerIdString = '["' + currentPlayer._id + '"]';
         model.userId = currentPlayer['_id'];
         model.currentPlayerRoles = currentPlayer['roles'];
         model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);

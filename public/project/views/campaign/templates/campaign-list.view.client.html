@@ -16,7 +16,7 @@
     </div>
 </nav>
 
-<div class="col-sm-4 hidden-xs stc-contentpane">
+<div class="container-fluid stc-contentpane">
     <ul class="list-group">
         <li class="list-group-item active">
             <div class="row">
@@ -24,7 +24,7 @@
                     Campaign Name
                 </div>
                 <div class="col-xs-3">
-                    <a href="#/player/{{model.userId}}/campaign/new">
+                    <a href="#/campaign/new">
                         <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
                     </a>
                 </div>
@@ -35,23 +35,26 @@
         <li class="list-group-item" ng-repeat="campaign in model.campaigns">
             <div class="row">
                 <div class="col-xs-9">
-                    <a href="#/player/{{campaign._user._id}}/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
+                    <a href="#/campaign/{{campaign._id}}/character">{{campaign.name}}</a>
                 </div>
                 <div class="col-xs-3">
-                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right"></span></a>
-                    <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                    <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                       ng-click="model.deleteCampaign(campaign._id)">
+                        <span class="glyphicon glyphicon-remove pull-right"></span></a>
+                    <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                       href="#/campaign/{{campaign._id}}">
+                        <span class="glyphicon glyphicon-pencil pull-right"></span></a>
                 </div>
             </div>
         </li>
     </ul>
+
 </div>
 
 <nav class="navbar navbar-fixed-bottom bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign">
+        <a href="#/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
         </a>
 

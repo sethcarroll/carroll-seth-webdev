@@ -9,16 +9,18 @@
 
         model.currentPlayer = currentPlayer;
         model.userId = currentPlayer['_id'];
+        model.currentPlayerRoles = currentPlayer['roles'];
+        model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);
         model.campaignId = $routeParams['campaignId'];
         model.updateCampaign = updateCampaign;
         model.deleteCampaign = deleteCampaign;
 
         function init() {
+            var world = 'world';
             campaignService
-                .findAllCampaignsForPlayer(model.userId)
+                .findAllCampaigns(world)
                 .then(function (campaigns) {
                     model.campaigns = campaigns;
-                    model.oldCampaigns = angular.copy(model.campaigns);
                 });
             campaignService
                 .findCampaignById(model.campaignId)
@@ -33,7 +35,7 @@
             campaignService
                 .updateCampaign(campaignId, campaign)
                 .then(function () {
-                    $location.url('/player/'+model.userId+'/campaign');
+                    $location.url('/campaign');
                 });
         }
 
@@ -41,7 +43,7 @@
             campaignService
                 .deleteCampaign(campaignId)
                 .then(function () {
-                    $location.url('/player/'+model.userId+'/campaign');
+                    $location.url('/campaign');
                 });
         }
     }

@@ -31,8 +31,7 @@ function findAllCampaignsForPlayer(userId) {
 
 function findAllCampaigns(world) {
     return campaignModel
-        .find({_world: world})
-        .populate('_world')
+        .find({world: world})
         .exec();
 }
 

@@ -9,6 +9,10 @@
         model.currentPlayer = currentPlayer;
         model.userId = currentPlayer['_id'];
         model.campaignId = $routeParams['campaignId'];
+        model.currentPlayerRoles = currentPlayer['roles'];
+        model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);
+
+        model.deleteCharacter = deleteCharacter;
 
         function init() {
             characterService
@@ -18,6 +22,14 @@
                 });
         }
         init();
+
+        function deleteCharacter(characterId) {
+            characterService
+                .deleteCharacter(characterId)
+                .then(function (){
+                    $location.url('/campaign/'+model.campaignId+'/character');
+                });
+        }
 
     }
 })();

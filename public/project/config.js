@@ -56,12 +56,12 @@
                     currentPlayer: checkLoggedIn
                 }
             })
-            .when('/diceanon', {
+            .when('/dice/anonymous', {
                 templateUrl: 'views/tools/templates/dice-anon.view.client.html',
                 controller: 'diceController',
                 controllerAs: 'model'
             })
-            .when('/player/:userId/campaign', {
+            .when('/campaign', {
                 templateUrl: 'views/campaign/templates/campaign-list.view.client.html',
                 controller: 'campaignListController',
                 controllerAs: 'model',
@@ -69,7 +69,7 @@
                     currentPlayer: checkLoggedIn
                 }
             })
-            .when('/player/:userId/campaign/new', {
+            .when('/campaign/new', {
                 templateUrl: 'views/campaign/templates/campaign-new.view.client.html',
                 controller: 'campaignNewController',
                 controllerAs: 'model',
@@ -77,7 +77,7 @@
                     currentPlayer: checkLoggedIn
                 }
             })
-            .when('/player/:userId/campaign/:campaignId', {
+            .when('/campaign/:campaignId', {
                 templateUrl: 'views/campaign/templates/campaign-edit.view.client.html',
                 controller: 'campaignEditController',
                 controllerAs: 'model',
@@ -86,7 +86,7 @@
                 }
             })
 
-            .when('/player/:userId/campaign/:campaignId/character', {
+            .when('/campaign/:campaignId/character', {
                 templateUrl: 'views/character/templates/character-list.view.client.html',
                 controller: 'characterListController',
                 controllerAs: 'model',
@@ -94,7 +94,7 @@
                     currentPlayer: checkLoggedIn
                 }
             })
-            .when('/player/:userId/campaign/:campaignId/character/new', {
+            .when('/campaign/:campaignId/character/new', {
                 templateUrl: 'views/character/templates/character-new.view.client.html',
                 controller: 'characterNewController',
                 controllerAs: 'model',
@@ -102,8 +102,16 @@
                     currentPlayer: checkLoggedIn
                 }
             })
-            .when('/player/:userId/campaign/:campaignId/character/:characterId', {
+            .when('/campaign/:campaignId/character/:characterId', {
                 templateUrl: 'views/character/templates/character-edit.view.client.html',
+                controller: 'characterEditController',
+                controllerAs: 'model',
+                resolve: {
+                    currentPlayer: checkLoggedIn
+                }
+            })
+            .when('/campaign/:campaignId/character/:characterId/view', {
+                templateUrl: 'views/character/templates/character.view.client.html',
                 controller: 'characterEditController',
                 controllerAs: 'model',
                 resolve: {

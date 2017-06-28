@@ -8,11 +8,15 @@
         var model = this;
         model.currentPlayer = currentPlayer;
         model.userId = currentPlayer['_id'];
+        model.currentPlayerRoles = currentPlayer['roles'];
+        model.isAdmin = (model.currentPlayerRoles.indexOf('ADMIN') !== -1);
         model.createCampaign = createCampaign;
+        model.deleteCampaign = deleteCampaign;
 
         function init() {
+            var world = 'world'
             campaignService
-                .findAllCampaignsForPlayer(model.userId)
+                .findAllCampaigns(world)
                 .then(function (campaigns) {
                     model.campaigns = campaigns;
                 });
@@ -21,11 +25,19 @@
 
         function createCampaign (campaign) {
             campaign.developerId = model.userId;
-            campaign._world = 'world';
+            campaign.world = 'world';
             campaignService
                 .createCampaign(campaign)
                 .then(function () {
-                    $location.url('/player/'+model.userId+'/campaign/');
+                    $location.url('/campaign/');
+                });
+        }
+
+        function deleteCampaign (campaignId) {
+            campaignService
+                .deleteCampaign(campaignId)
+                .then(function () {
+                    $location.url('/campaign');
                 });
         }
     }

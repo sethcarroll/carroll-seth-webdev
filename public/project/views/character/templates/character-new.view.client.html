@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character">
+        <a href="#/campaign/{{model.campaignId}}/character">
             <span class="navbar-text pull-left glyphicon glyphicon-menu-left"></span>
         </a>
 
@@ -18,7 +18,7 @@
 
 <div class="container-fluid stc-contentpane">
 
-    <div class="col-sm-4 hidden-xs">
+    <div class="col-sm-4 hidden-xs stc-contentpane">
         <ul class="list-group">
             <li class="list-group-item active">
                 <div class="row">
@@ -26,23 +26,26 @@
                         Character Name
                     </div>
                     <div class="col-xs-3">
-                        <a href="#/player/{{model.userId}}/campaign/{{model.campaignId}}/character/new">
+                        <a href="#/campaign/{{model.campaignId}}/character/new">
                             <span class="glyphicon glyphicon-plus pull-right stc-headerglyph"></span>
                         </a>
                     </div>
                 </div>
             </li>
 
+
             <li class="list-group-item" ng-repeat="character in model.characters">
                 <div class="row">
                     <div class="col-xs-9">
-                        <a href="">{{character.name}} </a>
+                        <a href="#/campaign/{{model.campaignId}}/character/{{character._id}}/view">{{character.name}}</a>
                     </div>
                     <div class="col-xs-3">
-                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}}/character/{{character._id}}">
-                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
-                        <a ng-if="campaign._user._id == model.userId" href="#/player/{{model.userId}}/campaign/{{campaign._id}/character/{{character._id}}}">
-                            <span class="glyphicon glyphicon-cog pull-right"></span></a>
+                        <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                           ng-click="model.deleteCharacter(character._id)">
+                            <span class="glyphicon glyphicon-remove pull-right"></span></a>
+                        <a ng-if="(message._user.toString() == model.userId) || (model.isAdmin)"
+                           href="#/campaign/{{model.campaignId}}/character/{{character._id}}">
+                            <span class="glyphicon glyphicon-pencil pull-right"></span></a>
                     </div>
                 </div>
             </li>
@@ -59,7 +62,27 @@
                    value=""
                    ng-model="character.name"
                    required/>
-
+            <label for="Class">Class</label>
+            <input id="class"
+                   placeholder="class"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.class"/>
+            <label for="level">Level</label>
+            <input id="level"
+                   placeholder="level"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.level"/>
+            <label for="race">Level</label>
+            <input id="race"
+                   placeholder="race"
+                   type="text"
+                   class="form-control"
+                   value=""
+                   ng-model="character.race"/>
             <label for="age">Age</label>
             <input id="age"
                    placeholder="age"
@@ -81,20 +104,6 @@
                    class="form-control"
                    value=""
                    ng-model="character.weight"/>
-            <label for="Class">Class</label>
-            <input id="class"
-                   placeholder="class"
-                   type="text"
-                   class="form-control"
-                   value=""
-                   ng-model="character.class"/>
-            <label for="level">Level</label>
-            <input id="level"
-                   placeholder="level"
-                   type="text"
-                   class="form-control"
-                   value=""
-                   ng-model="character.level"/>
             <label for="backstory">Backstory</label>
             <textarea id="backstory"
                       placeholder="backstory"
@@ -102,19 +111,18 @@
                       rows="3"
                       class="form-control"
                       ng-model="character.backstory"></textarea>
-            <br>
-                <input type="submit"
-                       class="btn btn-block btn-primary"
-                       value="Create Character"
-                       ng-click="model.createCharacter(character)">
-            </form>
-        </div>
+            <input type="submit"
+                   class="btn btn-block btn-primary"
+                   value="Create Character"
+                   ng-click="model.createCharacter(character)">
+        </form>
+    </div>
 </div>
 
 <nav class="navbar navbar-fixed-bottom bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign">
+        <a href="#/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
         </a>
 

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var campaignSchema = mongoose.Schema({
     _user: [{type: mongoose.Schema.ObjectId, ref: "PlayerModel"}],
-    _world: String,
+    world: String,
     name: String,
     description: String,
     characters: [{type: mongoose.Schema.ObjectId, ref: "CharacterModel"}],

@@ -57,11 +57,13 @@
             </ul>
             <br>
 
-            <div class="center-block text-center" ng-if="model.album">
+            <div class="col-sm-8 center-block" ng-if="model.album">
+                <div class="text-center">
                 <img ng-src="{{model.getAlbumArt(model.album)}}" alt="">
                 <h2>{{model.album.name}}</h2>
                 <h3>Artist: {{model.album.artist}}</h3>
                 <a ng-href="{{model.album.url}}" target="_blank"><h4>Access on LastFM</h4></a>
+                </div>
             </div>
 
         </div>
@@ -72,7 +74,7 @@
 <nav class="navbar navbar-fixed-bottom bg-info">
     <div class="container-fluid text-center">
 
-        <a href="#/player/{{model.userId}}/campaign">
+        <a href="#/campaign">
             <span class="navbar-text pull-left glyphicon glyphicon-book"></span>
         </a>
 
