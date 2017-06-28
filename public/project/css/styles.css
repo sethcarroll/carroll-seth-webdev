@@ -98,6 +98,25 @@ body {
     min-height: 100vh;
 }
 
+.stc-homepage {
+    background: url(../../resources/homepage.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
+    color: dodgerblue;
+    background-color: rgba(130, 130, 130, 0.3);
+}
+
+.stc-homepageimage {
+   border-radius: 60px;
+}
+
+.stc-homepagetitle {
+    color: white;
+}
+
 .stc-hometitle {
     position: absolute;
     font-size: 4em;
